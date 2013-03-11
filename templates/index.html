@@ -15,7 +15,35 @@
 
 });
 </script>
+    <script>
+      $(function() { 
+        // Setup the player to autoplay the next track
+        var a = audiojs.createAll({
+          trackEnded: function() {
+            var next = $('ol li.playing').next();
+            if (!next.length) next = $('ol li').first();
+            next.addClass('playing').siblings().removeClass('playing');
+            audio.load($('a', next).attr('data-src'));
+            audio.play();
+          }
+        });
+        
+        // Load in the first track
+        var audio = a[0];
+            first = $('ol a').attr('data-src');
+        $('ol li').first().addClass('playing');
+        audio.load(first);
 
+        // Load in a track on click
+        $('ol li').click(function(e) {
+          e.preventDefault();
+          $(this).addClass('playing').siblings().removeClass('playing');
+          audio.load($('a', this).attr('data-src'));
+          audio.play();
+        });
+        
+      });
+    </script>
 {%endblock%}
 {%block contenido%}
 
@@ -31,59 +59,44 @@
     </div>
     <div class="container">
       <div class="row">
-<div class="span9">
-    <div id="slider1">
-        <div>
-               {% for nota in notas%}
-                  <div class="cuadronota">
-                   <div class="pais-index">{{nota.user.userprofile.contraparte.pais.nombre}}<img src="/files/img/{{nota.user.userprofile.contraparte.pais.codigo}}.png"></div>
-                   {%for thumb in nota.fotos.all|slice:"1"%} 
-                         <img class="imagen-noticia-index" src="{{thumb.foto.url_220x160}}">
-                   {%endfor%}
-                   <div class="titulo-noticia-index">
-                     {{nota.titulo}}
-                   </div>
-                   <div class="detalle-noticia-index">
-                     {{nota.contenido|safe|truncatewords_html:20}}
-                   </div>
-                   <a href="/notas/{{nota.id}}" class="btn btn-inverse btn-mini">Leer más</a>
-                 </div>
-              {% endfor %}   
-          </div> 
-          <div>
-               {% for nota in notas2%}
-                  <div class=" cuadronota">
-                   <div class="pais-index">{{nota.user.userprofile.contraparte.pais.nombre}}<img src="/files/img/{{nota.user.userprofile.contraparte.pais.codigo}}.png"></div>
-                   {%for thumb in nota.fotos.all|slice:"1"%} 
-                         <img class="imagen-noticia-index" src="{{thumb.foto.url_220x160}}">
-                   {%endfor%}
-                   <div class="titulo-noticia-index">
-                     {{nota.titulo}}
-                   </div>
-                   <div class="detalle-noticia-index">
-                     {{nota.contenido|safe|truncatewords_html:20}}
-                   </div>
-                   <a href="/notas/{{nota.id}}" class="btn btn-inverse btn-mini">Leer más</a>
-                 </div>
-              {% endfor %}
+          <div class="span7">
+              <div>
+                     {% for nota in notas%}
+                        <div class="cuadronota">
+                         {%for thumb in nota.fotos.all|slice:"1"%} 
+                               <img class="imagen-noticia-index" width=245 src="{{thumb.foto.url_220x160}}">
+                         {%endfor%}
+                         <div class="titulo-noticia-index">
+                           {{nota.titulo}}
+                         </div>
+                         <div class="detalle-noticia-index">
+                           {{nota.contenido|safe|truncatewords_html:20}}
+                           <center>
+                           <a href="/notas/{{nota.id}}" class="boton-blue">Leer más</a>
+                           </center>
+                         </div>
+                         
+                       </div>
+                    {% endfor %}   
+                </div> 
           </div>
-    </div>
-</div>
 
-        <div class="span3 eventoindex-nuevo">
-           <div class="pais-index">Próximos Eventos</div>
-           <div class="clean"></div>
-          {%for e in evento%}
-            <div class="index-fechaevento-nuevo">
-              <center>{{e.inicio|date:"d F" }}</center>
-            </div>
-            <div class="index-nombreevento-nuevo">
-              <a href="/agendas/eventos/{{e.id}}">{{e.evento|safe|truncatewords_html:8}} </a>
-            </div>
-            <div class="clean"></div>
-          {%endfor%}
+          <div class="span5">
+              <div class="widget-audio">
+                <audio preload></audio>
+                  <ol>
+                        <li><a href="#" data-src="http://s3.amazonaws.com/audiojs/01-dead-wrong-intro.mp3">dead wrong intro</a></li>
+                        <li><a href="#" data-src="http://s3.amazonaws.com/audiojs/02-juicy-r.mp3">juicy-r</a></li>
+                        <li><a href="#" data-src="http://s3.amazonaws.com/audiojs/03-its-all-about-the-crystalizabeths.mp3">it's all about the crystalizabeths</a></li>
+                        <li><a href="#" data-src="http://s3.amazonaws.com/audiojs/04-islands-is-the-limit.mp3">islands is the limit</a></li>
+                        <li><a href="#" data-src="http://s3.amazonaws.com/audiojs/05-one-more-chance-for-a-heart-to-skip-a-beat.mp3">one more chance for a heart to skip a beat</a></li>
+                        <li><a href="#" data-src="http://s3.amazonaws.com/audiojs/06-suicidal-fantasy.mp3">suicidal fantasy</a></li>
+                        <li><a href="#" data-src="http://s3.amazonaws.com/audiojs/07-everyday-shelter.mp3">everyday shelter</a></li>
+                        <br>
+                  </ol>
+              </div>
           </div>
-        </div>
+
       </div>
     </div>
   </div>

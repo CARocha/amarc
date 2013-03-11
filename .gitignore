@@ -3,3 +3,5 @@
 *.pyc
 local_settings.py
 static_media/uploads/
+*.sublime-project
+*.sublime-workspace

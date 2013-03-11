@@ -4,18 +4,49 @@
 @rojo:red;
 @blanco:#fff;
 
-/* Variables de tipografias*/
+// AUTOR: Byron Corrales | https://github.com/byroncorrales/my-less-mixing
 
-/* Generales */
+// GENERAL 
 
 .wrapCenter(@width: 960px){
     width: @width;
     margin: 0 auto;
 }
 
-/* CSS3 Elements */
+// TRANSITIONS
 
-/* General styles for gradients */
+.trans(@propiedad,@seg){
+  transition:         @propiedad @seg;
+  -moz-transition:    @propiedad @seg;
+  -webkit-transition: @propiedad @seg; 
+  -o-transition:      @propiedad @seg; 
+}
+
+.rotate(@deg) {
+  -webkit-transform:  rotate(@deg); 
+  -moz-transform:     rotate(@deg);
+  -ms-transform:      rotate(@deg);
+  -o-transform:       rotate(@deg);
+  transform:          rotate(@deg);
+}
+ 
+.scale(@factor) {
+  -webkit-transform:  scale(@factor);
+  -moz-transform:     scale(@factor);
+  -ms-transform:      scale(@factor);
+  -o-transform:       scale(@factor);
+  transform:          scale(@factor);
+}
+ 
+.translate (@x, @y) {
+  -webkit-transform:  translate(@x, @y);
+  -moz-transform:     translate(@x, @y);
+  -ms-transform:      translate(@x, @y);
+  -o-transform:       translate(@x, @y);
+  transform:          translate(@x, @y);
+}
+
+// GRADIENTS
 
 .linear-gradient(@start:#eee,@end:#fff,@stop:25%){
     background-color: @start;
@@ -28,22 +59,37 @@
     background-image: linear-gradient(@start, @start @stop, @end);
 }
 
+.opacity(@o:0.7){
+    opacity: @o;
+    -moz-opacity: @o;
+    filter:alpha(opacity=@o);
+}
+
 .opacidad(@o:0.7){
     opacity: @o;
     -moz-opacity: @o;
     filter:alpha(opacity=@o);
 }
 
-.box-shadow (@hor: 0px, @vert: 0px, @blur: 5px, @shadow: #929292){
-    -webkit-box-shadow: @arguments ;
+
+// SHADOWS
+
+.box-shadow (@hor: 0px, @vert: 0px, @blur: 5px, @border:0px, @shadow: #929292){
+    -webkit-box-shadow: @arguments;
     -moz-box-shadow: @arguments;
     box-shadow: @arguments;
 }
 
+.box-double-shadow (@hor: 0px, @vert: 0px, @blur: 0px, @border:5px, @shadow: #929292, @hor2: 0px, @vert2: 0px, @blur2: 0px, @border2:10px, @shadow2: #929292){
+    -webkit-box-shadow: @hor @vert @blur @border @shadow, @hor2 @vert2 @blur2 @border2 @shadow2;
+    -moz-box-shadow: @hor @vert @blur @border @shadow, @hor2 @vert2 @blur2 @border2 @shadow2;
+    box-shadow: @hor @vert @blur @border @shadow, @hor2 @vert2 @blur2 @border2 @shadow2;
+}
+
 .box-shadow-inset (@hor: 0px, @vert: 0px, @blur: 5px, @shadow: #929292){
-    -webkit-box-shadow: @arguments inset;
-    -moz-box-shadow: @arguments inset;
-    box-shadow: @arguments inset;
+    -webkit-box-shadow: @arguments inset !important;
+    -moz-box-shadow: @arguments inset !important;
+    box-shadow: @arguments inset !important;
 }
 
 .text-shadow(@hor: 0px, @vert: 0px, @blur: 5px, @shadow: #929292){
@@ -51,6 +97,8 @@
     -moz-text-shadow: @arguments;
     -webkit-text-shadow: @arguments;
 }
+
+// CORNERS
 
 .rounded-corners(@radio: 5px){
     border-radius: @radio;
@@ -122,7 +170,6 @@
     -moz-border-radius-topright:@radio;
     -webkit-border-top-right-radius:@radio;
 }
-
 .boton-formulario{
     border-top-left-radius:40px;
     border-bottom-right-radius:40px;
