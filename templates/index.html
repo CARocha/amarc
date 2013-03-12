@@ -104,26 +104,22 @@
     <div class="encabezado">
       <div class="container">
         <div class="row">
-        <div class="span12 encabezado-title">
-          MIEMBROS
+        <div class="span12 pink encabezado-title">
+          RADIOS ASOCIADAS
         </div>
       </div>
       </div>
     </div>
     <div class="container">
       <div class="row">
-         {%for p in paises%}
-            <div class="span3 org-footer">
-               <div class="pais-footer"><img src="/files/img/{{p.codigo}}-g.png">{{p.nombre}}</div>
-               <ul>
-                  {%for c in contrapartes%}
-                      {%if c.pais.id == p.id %}
-                         <li><a href="{{c.get_absolute_url}}">{{c.siglas}}</a></li>  
-                      {%endif%}
-                  {%endfor%}       
-               </ul>
+            <div class="span9 radios-index">
+                {%for c in contrapartes%}
+                    <a href="{{c.get_absolute_url}}">{{c.nombre}}<br><span class="frecuencia">89.9 fm</span></a></li>  
+                {%endfor%}       
             </div>
-         {%endfor%}
+            <div class="span3">
+              <img style="margin-top:-20px;margin-bottom:10px;" src="/files/img/antena.jpg">
+            </div>
       </div>
     </div>
   </div>
