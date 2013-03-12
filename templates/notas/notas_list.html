@@ -2,10 +2,13 @@
 {% block extra_js %}
     <script type="text/javascript">
         $(document).ready(function(){
-			$(".alert").alert()
+			  // para resaltar menu
+  			  $('#noticias-menu').addClass('active');
         });
     </script>
 {% endblock %}
+{%block titulo%}Noticias{%endblock%}
+{%block descriptitulo%}Actualidad de Radios asociadas en AMARC{%endblock%}
 {% block contenido %}
 <div class="row">
 	<div class="encabezado">
@@ -16,19 +19,11 @@
 			      		NOTAS {%if pais_selecto%}: <b>{{pais_selecto.nombre}}</b>{%endif%}
 			  		</div>
 			    </div>
-			    <div class="span7">
-					<div class="btn-group filtrospais">
-					  <a class="btn disabled">Filtrar por</a>
-					  {%for pais in paises%}
-					  <a href="/notas/pais/{{pais.id}}" {%if pais.id == pais_selecto.id %} class="btn active"{%else%}class="btn"{%endif%}><img src="/files/img/{{pais.codigo}}.png">{{pais.nombre}}</a>
-					  {%endfor%}
-					</div>
-			    </div>
 	        </div>
 	  </div>
 	</div>
 </div>
-<div class="row" style="margin-top:10px;">
+<div class="row body-content">
 	<div class="container">
 		{% if request.GET.shva == 'erase' %}
             <div class="alert fade in">
@@ -44,10 +39,10 @@
 	             {%endfor%}
 				</div>
 				<div class="span9">
-						<div class="extrainfo">{{nota.fecha}}  |  {{nota.user.userprofile.contraparte.pais.nombre}} | {{nota.user.userprofile.contraparte.nombre}}</div>
+						<div class="extrainfo">{{nota.fecha}}  |  {{nota.user.userprofile.contraparte.nombre}}</div>
 						<a href="{{nota.get_absolute_url}}" class="titulo-medio">{{nota.titulo}}</a><br>
-						{{nota.contenido|safe|truncatewords_html:50}} <br><br>
-						<a href="/notas/{{nota.id}}" class="btn btn-success btn-mini">Leer más</a>
+						{{nota.contenido|safe|truncatewords_html:50}} 
+						<a href="/notas/{{nota.id}}" class="boton-blue-leer">Leer más</a>
 				</div>
 			</div>
 			<hr>

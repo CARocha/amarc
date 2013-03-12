@@ -5,62 +5,84 @@
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
-	<title>{%block title%}CAFOD{%endblock%}</title>
+  <title>{%block title%}AMARC{%endblock%}</title>
   <!--[<link type="text/css" rel="stylesheet"  href="/files/css/cafod.css">-->
-  {% load compress %}
+  {% load compress %} 
   {% compress css %}
     <link type="text/css" rel="stylesheet"  href="/files/bootstrap/css/bootstrap.min.css" >
-    <link type="text/css" rel="stylesheet"  href="/files/css/cafod.css">
+    <link type="text/css" rel="stylesheet"  href="/files/css/amarc.css">
     <link type="text/css" rel="stylesheet"  href="/files/css/jquery.fancybox.css" >
+    <link type="text/css" rel="stylesheet"  href="/files/css/jqueryui.css" >
+    <link href="/files/css/font-awesome.css" rel="stylesheet">
   {% endcompress %}
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-  {% compress js %}
+   <script type="text/javascript" src="/files/js/audio.min.js"></script>
     <script type="text/javascript" src="/files/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/files/bootstrap/js/bootstrap-transition.js"></script>
     <script type="text/javascript" src="/files/js/fancybox.pack.js"></script>
-  {% endcompress %}
+    <script type="text/javascript" src="/files/js/jqueryui.js"></script>
+    <script type="text/javascript">
+      $(function() {
+      $("#id_apertura , #id_cierre , #id_fecha_skype , #id_memoria, #id_inicio, #id_final").datepicker({ 
+          dateFormat: 'dd/mm/yy', 
+          dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'], 
+          monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+          changeYear: true
+        });
+    });
+    </script>
+      <!--[if IE 7]>
+      <link href="{{ STATIC_URL }}/files/css/font-awesome-ie7.css" rel="stylesheet">
+    <![endif]-->
   {%block extra_js%}{%endblock%}
 </head>
 <body>
 
 {% block header %}
   
-    <div class="navbar ">
+    <div class="navbar navbar-static-top baseinterna">
         <div class="navbar-inner">
             <div class="container">
               <a class="brand" href="/">
-                <i class="icon-home icon-white opacidad-50"></i>Plataforma de comunicación y aprendizaje
+                AMARC NICARAGUA 
               </a>
               <ul class="nav pull-right">
+                  <li id="inicio-menu"><a href="/"><i class="icon-home"></i>Inicio</a></li>
+                  <li id="noticias-menu"><a href="/notas">Noticias</a></li>
+                  <li id="eventos-menu"><a href="/agendas/eventos">Eventos</a></li>
+                  <li id="asociados-menu"><a href="/contrapartes">Asociados</a></li>
+                  <li id="aliados-menu"><a href="#">Aliados</a></li>
+                  <li id="producciones-menu"><a href="#">Producciones</a></li>
+                  
                   <li class="divider-vertical"></li>
                   {% if user.username %}
-                    <li ><a href="/foros/perfil"><i class="icon-user icon-white opacidad-50"></i>Bienvenido {{ user.username }}</a></li>
-                    <li class="divider-vertical"></li>
-                    <li ><a href="/contrapartes/estadisticas/ver"><i class="icon-signal opacidad-50 icon-white"></i>Estadísticas</a></li>
-                    <li class="divider-vertical"></li>
-                    <li><a href="/accounts/logout" title="Salir de Administración"><i class="icon-off opacidad-50 icon-white"></i>Salir</a></li>
+                    <li>
+                      <div class="btn-group">
+                      <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                        Bienvenido <strong>{{ user.username }}</strong>
+                        <span class="caret"></span>
+                      </a>
+                      <ul class="dropdown-menu">
+                        <li ><a href="/foros/perfil"><i class="icon-user icon-white opacidad-50"></i>Ver mi perfil</a></li>
+                        <li><a href="/accounts/logout" title="Salir de Administración"><i class="icon-off opacidad-50 icon-white"></i>Salir</a></li>
+                      </ul>
+                    </li>
+                  </div>
                   {% else %}
-                    <li><a href="/accounts/login"><i class="icon-user opacidad-50 icon-white"></i>Entrar</a></li>
+                    <li><a class="boton-pink" href="/accounts/login"><i class="icon-user"></i>Entrar</a></li>
                   {% endif %}
               </ul>
-              {% load_searchform %}
             </div>
         </div>
     </div>
-    <div class="row" id="grisheader-interna">
+    <div class="row" id="header">
       <div class="container">
         <div class="row">
-          <div class="span12" id="menulogo">
-              <div class="row">
-                  <div class="span8 offset4" id="menu">
-                    <a href="/" class="iniciomenu">Inicio</a>
-                    <a href="/notas" class="blogmenu">Notas</a>
-                      <a href="/acerca" class="acercamenu">Acerca de</a>
-                      <a href="/contrapartes" class="contrapartemenu">Contrapartes</a>
-                      <a href="/agendas/eventos" class="eventomenu">Eventos</a>
-                      <div class="clean"></div>
-                  </div>
-              </div>
+          <div class="span12">
+              <br>
+              <h3>{%block titulo%}{%endblock%}</h3>
+              <p class="descrip-titulo">{%block descriptitulo%}{%endblock%}</p>
+              <br>
           </div>
       </div>
     </div>
@@ -77,10 +99,33 @@
       <div class="row footer">
         <div class="container">
             <div class="row">
-              <div class="span12 footerinterior">
-                <div class="footertext1">Programa Medios de Vida Sostenible</div>
-                <div class="footertext2">CAFOD is the official Catholic Aid Agency for England and Wales</div>
-                <div class="footertext2">Desarrollado por <a href="http://www.simas.org.ni/">SIMAS</a></div>
+              <div class="span3 footer-block">
+                 <center>
+                    <img src="/files/img/amarc_nicaragua_s.png">&nbsp;&nbsp;
+                    <a href="http://www2.amarc.org/?q=es"><img src="/files/img/amarc_s.png"></a>
+                    <br>
+                    AMARC - Nicaragua, forma parte de <a href="http://www2.amarc.org/?q=es">AMARC Internacional</a>
+                 </center>
+              </div>
+              <div class="span3 footer-block">
+                 <center>
+                    <a href="http://simas.org.ni"><img style="margin-bottom:10px;" src="/files/img/simas_s.png"></a>
+                    <br>
+                    El desarrollo de esta plataforma contó con la colaboración de <a href="http://simas.org.ni">SIMAS</a>
+                 </center>
+              </div>
+              <div class="span5 offset1 footer-block">
+                  <h4>CONTACTO</h4>
+                  <div class="contacto">
+                    <strong>Wendy Quintero</strong><br>
+                    Radio Camoapa<br>
+                    <a href="#">wmercedes@gmail.com</a>
+                  </div>
+                  <div class="contacto">
+                    <strong>Argentina Olivas</strong><br>
+                    Radio Vos<br>
+                    <a href="#">contacto@radiovos.org</a>
+                  </div>
               </div>
             </div>
         </div>

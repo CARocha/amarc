@@ -792,13 +792,23 @@ form hr{margin-top:10px; margin-bottom:10px;}
 
 // Amarc css
 
-.navbar-static-top .navbar-inner {
-  height:42px;
+.base .navbar-inner {
+  height:42px !important;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
 	.navbar-static-top .navbar-inner {
-	  height:41px;
+	  height:41px !important;
+	}
+}
+
+.baseinterna .navbar-inner {
+  height:40px !important;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	.navbar-static-top .navbar-inner {
+	  height:39px !important;
 	}
 }
 
@@ -836,6 +846,25 @@ form hr{margin-top:10px; margin-bottom:10px;}
 	font-size: 16px;
 	display: block;
 	width: 100px;
+	&:hover{
+		.linear-gradient(#74a8e2,#5f8bbd,15%);
+		text-decoration: none;
+	}
+}
+
+.boton-blue-leer{
+	padding:4px 10px 3px 10px!important;
+	.linear-gradient(#74a8e2,#74a8e2,25%);
+	color:#fff !important;
+	font-weight: bold;
+	border-bottom: #b4cbdf 1px solid;
+	text-shadow:none !important;
+	.box-shadow(0px,2px,0px,0px,#2465af);
+	.rounded-corners(2px);
+	margin:10px 10px 0px 0px;
+	font-size: 12px;
+	display: block;
+	width: 56px;
 	&:hover{
 		.linear-gradient(#74a8e2,#5f8bbd,15%);
 		text-decoration: none;
@@ -1033,4 +1062,33 @@ form hr{margin-top:10px; margin-bottom:10px;}
 			font-weight: normal;
 		}
 	}
+}
+
+.body-content{
+	background: #f3f3f2;
+	padding-top:30px;
+	margin-bottom: 0px;
+	.container{
+		background: #fff;
+		padding: 20px;
+		margin-bottom: 30px;
+		.box-shadow(0px,4px,3px,0px,#cfcfcf);
+	}
+}
+
+.encabezado{
+	margin-bottom: 0px;
+}
+
+.titulo-medio{
+	color:#3c73af;
+	&:hover{
+		color:#274d78;
+		text-decoration: none;
+	}
+}
+
+.titulo-grande{
+	color:#5e6b6f;
+	font-size: 26px;
 }

@@ -853,12 +853,20 @@ form hr {
   list-style: none;
   margin-left: 0px;
 }
-.navbar-static-top .navbar-inner {
-  height: 42px;
+.base .navbar-inner {
+  height: 42px !important;
 }
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   .navbar-static-top .navbar-inner {
-    height: 41px;
+    height: 41px !important;
+  }
+}
+.baseinterna .navbar-inner {
+  height: 40px !important;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .navbar-static-top .navbar-inner {
+    height: 39px !important;
   }
 }
 .boton-pink {
@@ -969,6 +977,65 @@ form hr {
   width: 100px;
 }
 .boton-blue:hover {
+  background-color: #74a8e2;
+  background-repeat: no-repeat;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#74a8e2), color-stop(15%, #74a8e2), to(#5f8bbd));
+  background-image: -webkit-linear-gradient(#74a8e2, #74a8e2 15%, #5f8bbd);
+  background-image: -moz-linear-gradient(top, #74a8e2, #74a8e2 15%, #5f8bbd);
+  background-image: -ms-linear-gradient(#74a8e2, #74a8e2 15%, #5f8bbd);
+  background-image: -o-linear-gradient(#74a8e2, #74a8e2 15%, #5f8bbd);
+  background-image: linear-gradient(#74a8e2, #74a8e2 15%, #5f8bbd);
+  background-color: #74a8e2;
+  background-repeat: no-repeat;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#74a8e2), color-stop(15%, #74a8e2), to(#5f8bbd));
+  background-image: -webkit-linear-gradient(#74a8e2, #74a8e2 15%, #5f8bbd);
+  background-image: -moz-linear-gradient(top, #74a8e2, #74a8e2 15%, #5f8bbd);
+  background-image: -ms-linear-gradient(#74a8e2, #74a8e2 15%, #5f8bbd);
+  background-image: -o-linear-gradient(#74a8e2, #74a8e2 15%, #5f8bbd);
+  background-image: linear-gradient(#74a8e2, #74a8e2 15%, #5f8bbd);
+  text-decoration: none;
+}
+.boton-blue-leer {
+  padding: 4px 10px 3px 10px!important;
+  background-color: #74a8e2;
+  background-repeat: no-repeat;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#74a8e2), color-stop(25%, #74a8e2), to(#74a8e2));
+  background-image: -webkit-linear-gradient(#74a8e2, #74a8e2 25%, #74a8e2);
+  background-image: -moz-linear-gradient(top, #74a8e2, #74a8e2 25%, #74a8e2);
+  background-image: -ms-linear-gradient(#74a8e2, #74a8e2 25%, #74a8e2);
+  background-image: -o-linear-gradient(#74a8e2, #74a8e2 25%, #74a8e2);
+  background-image: linear-gradient(#74a8e2, #74a8e2 25%, #74a8e2);
+  background-color: #74a8e2;
+  background-repeat: no-repeat;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#74a8e2), color-stop(25%, #74a8e2), to(#74a8e2));
+  background-image: -webkit-linear-gradient(#74a8e2, #74a8e2 25%, #74a8e2);
+  background-image: -moz-linear-gradient(top, #74a8e2, #74a8e2 25%, #74a8e2);
+  background-image: -ms-linear-gradient(#74a8e2, #74a8e2 25%, #74a8e2);
+  background-image: -o-linear-gradient(#74a8e2, #74a8e2 25%, #74a8e2);
+  background-image: linear-gradient(#74a8e2, #74a8e2 25%, #74a8e2);
+  color: #fff !important;
+  font-weight: bold;
+  border-bottom: #b4cbdf 1px solid;
+  text-shadow: none !important;
+  -webkit-box-shadow: 0px 2px 0px 0px #2465af;
+  -moz-box-shadow: 0px 2px 0px 0px #2465af;
+  box-shadow: 0px 2px 0px 0px #2465af;
+  border-radius: 2px;
+  -ms-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -khtml-border-radius: 2px;
+  border-radius: 2px;
+  -ms-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -khtml-border-radius: 2px;
+  margin: 10px 10px 0px 0px;
+  font-size: 12px;
+  display: block;
+  width: 56px;
+}
+.boton-blue-leer:hover {
   background-color: #74a8e2;
   background-repeat: no-repeat;
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#74a8e2), color-stop(15%, #74a8e2), to(#5f8bbd));
@@ -1230,4 +1297,31 @@ form hr {
   margin-top: 25px;
   color: #74a8e2;
   font-weight: normal;
+}
+.body-content {
+  background: #f3f3f2;
+  padding-top: 30px;
+  margin-bottom: 0px;
+}
+.body-content .container {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 30px;
+  -webkit-box-shadow: 0px 4px 3px 0px #cfcfcf;
+  -moz-box-shadow: 0px 4px 3px 0px #cfcfcf;
+  box-shadow: 0px 4px 3px 0px #cfcfcf;
+}
+.encabezado {
+  margin-bottom: 0px;
+}
+.titulo-medio {
+  color: #3c73af;
+}
+.titulo-medio:hover {
+  color: #274d78;
+  text-decoration: none;
+}
+.titulo-grande {
+  color: #5e6b6f;
+  font-size: 26px;
 }

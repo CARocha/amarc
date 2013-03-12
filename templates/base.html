@@ -26,19 +26,19 @@
 
 {% block header %}
   
-    <div class="navbar navbar-static-top">
+    <div class="navbar navbar-static-top base">
         <div class="navbar-inner">
             <div class="container">
               <a class="brand" href="/">
                 AMARC NICARAGUA 
               </a>
               <ul class="nav pull-right">
-                  <li class="active"><a href="/"><i class="icon-home"></i>Inicio</a></li>
-                  <li><a href="/notas">Noticias</a></li>
-                  <li><a href="/agendas/eventos">Eventos</a></li>
-                  <li><a href="/contrapartes">Asociados</a></li>
-                  <li><a href="#">Aliados</a></li>
-                  <li><a href="#">Producciones</a></li>
+                  <li id="inicio-menu"><a href="/"><i class="icon-home"></i>Inicio</a></li>
+                  <li id="noticias-menu"><a href="/notas">Noticias</a></li>
+                  <li id="eventos-menu"><a href="/agendas/eventos">Eventos</a></li>
+                  <li id="asociados-menu"><a href="/contrapartes">Asociados</a></li>
+                  <li id="aliados-menu"><a href="#">Aliados</a></li>
+                  <li id="producciones-menu"><a href="#">Producciones</a></li>
                   
                   <li class="divider-vertical"></li>
                   {% if user.username %}

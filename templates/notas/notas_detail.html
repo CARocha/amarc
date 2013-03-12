@@ -4,6 +4,8 @@
 <script type="text/javascript" src="/files/js/jquery.bxSlider.min.js"></script>
 <script type="text/javascript">
   $(document).ready(function(){
+  // para resaltar menu
+  $('#noticias-menu').addClass('active');
   // assign the slider to a variable
   var slider = $('#slider1').bxSlider({
     controls: false
@@ -43,6 +45,7 @@ $(".alert").alert();
 </script>
 
 {%endblock%}
+{%block titulo%}Noticias{%endblock%}
 {% block contenido %}
 
 <div class="row">
@@ -60,7 +63,7 @@ $(".alert").alert();
       </div>
     </div>
 </div>
-<div class="row">
+<div class="row body-content">
     <div class="container">
         <div class="row">
             <div class="span7">
@@ -71,7 +74,7 @@ $(".alert").alert();
                   </div>
                 {% endif %}
                <h1 class="titulo-grande">{{nota.titulo}}</h1>
-               <div class="extrainfofull">{{nota.fecha}}  |  {{nota.user.userprofile.contraparte.pais.nombre}}</div>
+               <div class="extrainfofull">{{nota.fecha}}</div>
             </div>
             <div class="span5">
                 
@@ -89,7 +92,7 @@ $(".alert").alert();
                       <a class="fancybox" rel="galleryforo" title="{{imagen.nombre_img}}" href="{{imagen.foto.url_640x480}}">
                         <img class="imagen-slider" src="{{imagen.foto.url_380x250}}" alt="{{imagen.nombre}}" title="{{imagen.nombre}}">
                       </a>
-                        <span class="label label-success">{{imagen.nombre_img}}</span>
+                        <span class="label label-info">{{imagen.nombre_img}}</span>
                     </div>
                     {% endfor %}
                 </div>
