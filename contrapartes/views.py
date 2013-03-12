@@ -23,6 +23,10 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 #    return render_to_response('contrapartes/contraparte_index.html', locals(),
 #                                 context_instance=RequestContext(request))
 
+def lista_contrapartes_mapa(request):
+    contra = Contraparte.objects.all()
+    return render_to_response('contrapartes/contraparte_list_mapa.html', locals(),
+                                 context_instance=RequestContext(request))
 
 def detalle_contraparte(request,id):
     contra = get_object_or_404(Contraparte, id=id)

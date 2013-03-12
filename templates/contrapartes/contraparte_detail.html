@@ -7,9 +7,12 @@
                 $(this).parent().slideUp();
                 return false;
             });
+        // para resaltar menu
+        $('#asociados-menu').addClass('active');
         });
     </script>
 {% endblock %}
+{%block titulo%}Asociados en Nicaragua{%endblock%}
 {% block contenido %}
 <div class="row">
     <div class="encabezado">
@@ -52,12 +55,7 @@
                 <img class="contraparte-detalle-logo"src="{{contra.logo.url_180x160}}" alt="{{contra.nombre}}">
                 <table class="table  table-bordered table-striped table-condensed contraparte-tabla">
                     <tbody>
-                        {%if contra.pais %}
-                        <tr>
-                            <td><b>País</b></td>
-                            <td><img style="margin-top:-3px" src="/files/img/{{contra.pais.codigo}}.png"> {{contra.pais}}</td>
-                        </tr>
-                        {%endif%}
+
                         {%if contra.fundacion%}
                         <tr>
                             <td><b>Año de fundación</b></td>

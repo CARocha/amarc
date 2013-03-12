@@ -6,6 +6,8 @@ urlpatterns = patterns('contrapartes.views',
     url(r'^$', ListView.as_view(model=Contraparte, 
     	                        template_name="contraparte/contraparte_list.html"),
                                 name="contraparte-list"),
+
+    url(r'^mapa/$', 'lista_contrapartes_mapa', name="contraparte-list-mapa"),
     url(r'^(?P<id>\d+)/$', 'detalle_contraparte', name="detalle-contraparte"),
     # url(r'^(?P<pk>\d+)/$', DetailView.as_view(model=Contraparte, 
     # 	                                        template_name='notas/contraparte_detail.html'),

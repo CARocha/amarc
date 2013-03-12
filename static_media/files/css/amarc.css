@@ -1268,11 +1268,11 @@ form hr {
   -webkit-transition: color 0.5s;
   -o-transition: color 0.5s;
 }
-.radios-index .frecuencia {
+.frecuencia {
   color: #aab4b7;
   font-size: 10px;
 }
-.radios-index .frecuencia:hover {
+.frecuencia:hover {
   text-decoration: none;
 }
 .footer {
@@ -1324,4 +1324,49 @@ form hr {
 .titulo-grande {
   color: #5e6b6f;
   font-size: 26px;
+}
+.evento {
+  border-top: 1px solid #E9E9E9;
+  border-left: 1px solid #E9E9E9;
+  border-right: 1px solid #E9E9E9;
+}
+.asociado-link {
+  width: 290px;
+  float: left;
+  -webkit-box-shadow: 0px 0px 14px 0px #eeeeee inset !important;
+  -moz-box-shadow: 0px 0px 14px 0px #eeeeee inset !important;
+  box-shadow: 0px 0px 14px 0px #eeeeee inset !important;
+  margin-right: 30px;
+  border: #d8d8d8 1px solid;
+  padding: 10px;
+  margin-bottom: 30px;
+}
+.sidebar-radios p {
+  color: #888a85;
+  font-size: 12px;
+  padding: 0px 34px;
+  text-align: justify;
+}
+.destacado-content {
+  color: #9da298;
+  font-size: 17px;
+}
+.sidebar-title {
+  color: #ea5673;
+  font-size: 15px;
+  font-weight: normal;
+  margin-top: 15px;
+  text-transform: uppercase;
+  padding-bottom: 10px;
+}
+.nota-sidebar .nota-sidebar-title a {
+  color: #2e3436;
+}
+.nota-sidebar .nota-sidebar-title a:hover {
+  color: #e54867;
+  transition: color 0.5s;
+  -moz-transition: color 0.5s;
+  -webkit-transition: color 0.5s;
+  -o-transition: color 0.5s;
+  text-decoration: none;
 }

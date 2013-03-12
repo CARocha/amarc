@@ -82,38 +82,24 @@
         <div class="row">
           <div class="span12">
             <div class="row">
-               <div class="span7">
-                  <div class=" bienvenida">
-                     <img src="/files/img/logoheader.png" style="float:left;margin-right:20px;">
-                     <p style="padding-top:10px;">
-                      Somos un grupos de radios comunitarias, que junto a organizaciones aliadas promueven el desarrollo social, los derechos humanos, la diversidad cultural, la pluralidad de informaciones y opiniones, a fin de  fortalecimiento de los vínculos que hacen a la esencia de la identidad cultural y social.
-                     </p>
-                   </div>
-                   <div class="index-mapa">
-                    <a href="#" id="link-mapa"><img src="/files/img/mapa.jpg" ></a>
-                    <div class="descripcion">
-                      <h4>Asociados en Nicaragua</h4>
-                      <p style="font-size:12px;">
-                      Explora la ubicacion de todos las radios asociadas y su distribucion en el territorio nacional
-                      </p>
-                      <center>
-                        <a class="boton-blue" href="#">Ver Mapa</a>
-                      </center>
-                    </div>
-                    <div class="clearfix"></div>
-                   </div>
-               </div>
-               <div class="span5">
-                  <div class="new-evento-index">
-                        {%for e in evento%}
-                            <div class="fecha">{{e.inicio|date:"d F" }}</div>
-                            <a class="evento-elemento" href="/agendas/eventos/{{e.id}}">{{e.evento|safe|truncatewords_html:8}} </a>
-                            <div class="clearfix"></div>
-                        {%endfor%}
-                        <a class="mas-eventos" href="/agendas/eventos/">Mas Eventos →</a>
-                        <div class="line-event"></div>
-                  </div>
-               </div>
+                <div class="span3" >
+                  <img src="/files/img/cafodlogoadmin.png">
+                </div>
+                <div class="span9" id="barra-admin">
+                  <div class="divisor-barra-admin"></div>
+                  <a href="/foros/privado/nota" class="notaiconadmin">Mis Notas</a>
+                  <div class="divisor-barra-admin"></div>
+                  <a href="/agendas/calendario" class="agendaiconadmin">Mi Agenda</a>
+                  <div class="divisor-barra-admin"></div>
+                  <a href="/foros" class="foroiconadmin">Foro</a>
+                  <div class="divisor-barra-admin"></div>
+                  <a href="/foros/privado/documento" class="documentosiconadmin">Documentos</a>
+                  <div class="divisor-barra-admin"></div>
+                  <a href="/foros/privado/multimedia_fotos" class="multimediaiconadmin">Multimedia</a>
+                  <div class="divisor-barra-admin"></div>
+                  <a href="/contrapartes/mensaje/ver" class="adminmensaje">Mensajes</a>
+                  <div class="clean"></div>
+                </div>
             </div>
           </div>
       </div>

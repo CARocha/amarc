@@ -30,27 +30,23 @@
     <div class="container">
         <div class="row">
             <div class="span9">
-            {% for contraparte in object_list %}
-                    <div class='asociado-link'>
-                        <span class="frecuencia" style="right:0;position: relative;">105.5 fm</span>
-                        <center><a href="{{contraparte.get_absolute_url}}" ><img src="{{contraparte.logo.url_180x160}}" alt="{{contraparte.nombre}}"></a><br><br> 
-                        <a href="{{contraparte.get_absolute_url}}" class="titulo-medio">{{contraparte.nombre}}</a>
-                        </center> 
-                    </div>
-            {% endfor %}
+
+                <!-- Mapa ejemplo, modificar luego por el real -->
+                <iframe width='700' height='600' frameBorder='0' src='http://a.tiles.mapbox.com/v3/byroncorrales.map-jzdwgqh2.html#8/12.836/-85.18199999999997'></iframe>
+
             </div>
             <div class='span3 sidebar-radios'>
                 <center>
                 <div class="btn-group">
-                  <a href="/contrapartes/mapa" class="btn btn-large">Mapa</a>
-                  <a href="/contrapartes/" class="btn btn-large active">Lista</a>
+                  <a href="/contrapartes/mapa" class="btn btn-large active">Mapa</a>
+                  <a href="/contrapartes/" class="btn btn-large ">Lista</a>
                 </div>
                 </center>
                 <br>
                 <center>
                 <img src="/files/img/amarc_sidebar.png"><br><br>
                 </center>
-                <p>Lista que demuestra la distribucion de las radios comunitarias pertenecientes a AMARC Nicaragua en la actualidad</p>
+                <p>Mapa que demuestra la distribucion de las radios comunitarias pertenecientes a AMARC Nicaragua en la actualidad</p>
             </div>
         </div>
     </div>
