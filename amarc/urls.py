@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from settings import *
-
+from django.views.generic.simple import direct_to_template
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
@@ -31,6 +31,12 @@ urlpatterns = patterns('',
     url(r'^tagging_autocomplete/', include('tagging_autocomplete.urls')),
     url(r'^foros/', include('foros.urls')),
     url(r'^busqueda/$', include('django_google_cse.urls')),
+
+    #temporales de secciones que no existen
+    url(r'^temporal-lista-aliado/$', direct_to_template, { 'template': 'contrapartes/aliado_list.html' }),
+    url(r'^temporal-detalle-aliado/$', direct_to_template, { 'template': 'contrapartes/aliado_detail.html' }),
+    url(r'^temporal-producciones-video/$', direct_to_template, { 'template': 'contrapartes/producciones_videos.html' }),
+    url(r'^temporal-producciones-audio/$', direct_to_template, { 'template': 'contrapartes/producciones_audios.html' }),
 )
 
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns

@@ -1370,3 +1370,63 @@ form hr {
   -o-transition: color 0.5s;
   text-decoration: none;
 }
+.titulo-producciones {
+  font-size: 21px;
+  font-weight: bold;
+  margin-left: 15px;
+}
+.producciones-tab {
+  margin: 20px 20px;
+}
+.producciones-tab .tab-pane a {
+  display: block;
+  background: url(/files/img/mic_icon.png) no-repeat center left;
+  padding-left: 25px;
+  font-size: 12px;
+  margin: 8px;
+}
+.producciones-tab .tab-pane a.etiqueta {
+  background: none !important;
+  padding-left: 6px !important;
+}
+.producciones-tab .tab-content {
+  background: #f9f9f3;
+  border-bottom: 1px solid #DDDDDD;
+  border-left: 1px solid #DDDDDD;
+  border-right: 1px solid #DDDDDD;
+}
+.producciones-tab .nav-tabs {
+  margin-bottom: 0px;
+  width: 100%;
+}
+.producciones-tab .nav-tabs li a {
+  color: #b7b7b7;
+}
+.producciones-tab .nav-tabs li.active a {
+  background: #f9f9f3;
+  font-weight: bold;
+  color: #555;
+}
+.elemento-audio {
+  width: 660px;
+  margin-bottom: 30px;
+  border-bottom: #c8c8c8 1px solid;
+  padding-bottom: 20px;
+}
+.elemento-audio .nombre-radio {
+  width: 30%;
+  float: left;
+  color: #ea5975;
+}
+.elemento-audio .player-right {
+  width: 70%;
+  float: right;
+  font-size: 14px;
+  font-weight: bold;
+}
+.elemento-audio .boton-blue-leer {
+  float: right;
+}
+.pagination li a {
+  color: #4c82be;
+}
