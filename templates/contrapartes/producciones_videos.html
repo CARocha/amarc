@@ -3,12 +3,18 @@
 <script type='text/javascript'>
     $(document).ready(function() {
          // para resaltar menu
-        $('#asociados-menu').addClass('active');
+        $('#producciones-menu').addClass('active');
     });
 </script>
+<script>
+  audiojs.events.ready(function() {
+    var as = audiojs.createAll();
+  });
+</script>
 {%endblock%}
-{%block titulo%}Asociados en Nicaragua{%endblock%}
-{%block descriptitulo%}Somos un grupos de radios comunitarias, que junto a organizaciones aliadas promueven el desarrollo social, los derechos humanos, la diversidad cultural, la pluralidad de informaciones y opiniones, a fin de  fortalecimiento de los vínculos que hacen a la esencia de la identidad cultural y social.{%endblock%}
+{%block title%}Videos{%endblock%}
+{%block titulo%}Producciones{%endblock%}
+{%block descriptitulo%}Aquí podrá encontrar las producciones radiofónicas elaboradas por las asociadas y aliados  a fin de favorecer el ejercicio del derecho a la información y a la libertad de expresión de la ciudadanía.{%endblock%}
 {% block contenido %}
 <div class="row">
     <div class="encabezado">
@@ -16,7 +22,7 @@
             <div class="row">
                 <div class="span5">
                     <div class="encabezado-title">
-                        CONTRAPARTES
+                         Producciones Multimedia
                     </div>
                 </div>
                 <div class="span7">
@@ -30,23 +36,157 @@
     <div class="container">
         <div class="row">
             <div class="span9">
+                <img src="/files/img/audiosicon.png">
+                <span class="titulo-producciones">
+                    Videos
+                </span>
+                <br><br><br>
 
-                <!-- Mapa ejemplo, modificar luego por el real -->
-                <iframe width='700' height='600' frameBorder='0' src='http://a.tiles.mapbox.com/v3/byroncorrales.map-jzdwgqh2.html#8/12.836/-85.18199999999997'></iframe>
+                <div class="elemento-video">
+                    <img src="/files/img/preview_video.png">
+                    Titulo ejemplo de un video <br>
+                    <div class="nombre-radio">
+                        Radio Ecologica
+                    </div>
+                </div>
+
+                <div class="elemento-video">
+                    <img src="/files/img/preview_video.png">
+                    Titulo ejemplo de un video <br>
+                    <div class="nombre-radio">
+                        Radio Ecologica
+                    </div>
+                </div>
+
+                <div class="elemento-video">
+                    <img src="/files/img/preview_video.png">
+                    Titulo ejemplo de un video <br>
+                    <div class="nombre-radio">
+                        Radio Ecologica
+                    </div>
+                </div>
+
+                <div class="elemento-video">
+                    <img src="/files/img/preview_video.png">
+                    Titulo ejemplo de un video <br>
+                    <div class="nombre-radio">
+                        Radio Ecologica
+                    </div>
+                </div>
+
+                <div class="elemento-video">
+                    <img src="/files/img/preview_video.png">
+                    Titulo ejemplo de un video <br>
+                    <div class="nombre-radio">
+                        Radio Ecologica
+                    </div>
+                </div>
+
+                <div class="elemento-video">
+                    <img src="/files/img/preview_video.png">
+                    Titulo ejemplo de un video <br>
+                    <div class="nombre-radio">
+                        Radio Ecologica
+                    </div>
+                </div>
+
+                <div class="elemento-video">
+                    <img src="/files/img/preview_video.png">
+                    Titulo ejemplo de un video <br>
+                    <div class="nombre-radio">
+                        Radio Ecologica
+                    </div>
+                </div>
+
+                <div class="elemento-video">
+                    <img src="/files/img/preview_video.png">
+                    Titulo ejemplo de un video <br>
+                    <div class="nombre-radio">
+                        Radio Ecologica
+                    </div>
+                </div>
+
+                <div class="elemento-video">
+                    <img src="/files/img/preview_video.png">
+                    Titulo ejemplo de un video <br>
+                    <div class="nombre-radio">
+                        Radio Ecologica
+                    </div>
+                </div>
+
+                <div class="elemento-video">
+                    <img src="/files/img/preview_video.png">
+                    Titulo ejemplo de un video <br>
+                    <div class="nombre-radio">
+                        Radio Ecologica
+                    </div>
+                </div>
+
+                <div class="pagination">
+                  <ul>
+                    <li><a href="#">←</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">→</a></li>
+                  </ul>
+                </div>
 
             </div>
             <div class='span3 sidebar-radios'>
                 <center>
                 <div class="btn-group">
-                  <a href="/contrapartes/mapa" class="btn btn-large active">Mapa</a>
-                  <a href="/contrapartes/" class="btn btn-large ">Lista</a>
+                  <a href="/temporal-producciones-audio" class="btn btn-large ">Audios</a>
+                  <a href="/temporal-producciones-video" class="btn btn-large active">Videos</a>
                 </div>
                 </center>
                 <br>
                 <center>
-                <img src="/files/img/amarc_sidebar.png"><br><br>
+                <form class="form-search">
+                    <div class="input-prepend">
+                    <button type="submit" class="btn"><i class="icon-search"></i></button>
+                    <input type="text" class="span2 ">
+                    </div>
+                </form>
                 </center>
-                <p>Mapa que demuestra la distribucion de las radios comunitarias pertenecientes a AMARC Nicaragua en la actualidad</p>
+                <div class="tabbable producciones-tab">
+                  <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab1" data-toggle="tab">Radios</a></li>
+                    <li><a href="#tab2" data-toggle="tab">Etiquetas</a></li>
+                  </ul>
+                  <div class="tab-content">
+                    <div class="tab-pane active" id="tab1">
+                      <a href="#">Radio Camoapa</a>
+                      <a href="#">Radio Humedales</a>
+                      <a href="#">Radio Segovia</a>
+                      <a href="#">Radio Juvenil</a>
+                      <a href="#">Radio DKYFM</a>
+                      <a href="#">Radio Universidad</a>
+                      <a href="#">Radio Ecologica</a>
+                      <a href="#">Radio La Nandaimeña</a>
+                      <a href="#">Radio Vos</a>
+                      <a href="#">Radio Zinica</a>
+                      <a href="#">Radio Palabra de mujer</a>
+                      <a href="#">Radio Huracan</a>
+                    </div>
+                    <div class="tab-pane" id="tab2">
+                      <a href="#" class="etiqueta"><i class="icon-tag"></i>Libertad</a>
+                      <a href="#" class="etiqueta"><i class="icon-tag"></i>Mujeres</a>
+                      <a href="#" class="etiqueta"><i class="icon-tag"></i>Ciudadania</a>
+                      <a href="#" class="etiqueta"><i class="icon-tag"></i>Derecho</a>
+                      <a href="#" class="etiqueta"><i class="icon-tag"></i>Local</a>
+                      <a href="#" class="etiqueta"><i class="icon-tag"></i>Naturaleza</a>
+                      <a href="#" class="etiqueta"><i class="icon-tag"></i>Testimonio</a>
+                      <a href="#" class="etiqueta"><i class="icon-tag"></i>Novela</a>
+                      <a href="#" class="etiqueta"><i class="icon-tag"></i>Programa radial</a>
+                      <a href="#" class="etiqueta"><i class="icon-tag"></i>Cuentos</a>
+                      <a href="#" class="etiqueta"><i class="icon-tag"></i>Viñetas</a>
+                      <a href="#" class="etiqueta"><i class="icon-tag"></i>Radio</a>
+                    </div>
+                  </div>
+                </div>
             </div>
         </div>
     </div>
