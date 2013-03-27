@@ -1,5 +1,6 @@
 {% extends "baseinterna.html" %}
-
+{%block titulo%}Entrar a plataforma{%endblock%}
+{%block descriptitulo%}Favor introduzca su información de usuario registrado.{%endblock%}
 {% block contenido %}
 <div class="row">
     <div class="encabezado">
@@ -17,7 +18,7 @@
       </div>
     </div>
 </div>
-<div class="row">
+<div class="row body-content">
 	<div class="container">
 		<div class="row">
 			<div class="span4">
@@ -35,14 +36,14 @@
 					{{ form.password.label_tag }}
 					{{ form.password }}
 				</div>					
-				<input type="submit" class="btn btn-success"value="Entrar"></input>
+				<input type="submit" class="btn btn-info"value="Entrar"></input>
 				<input type="hidden" name="next" value="{{ next }}" />
 			    
 			</form>
 			</div>
 			<div class="span8">
-				<div class="alert alert-success">
-					<p>Esta es una plataforma privada de CAFOD y contrapartes pertenecientes al programa medios de vida sostenible.</p>
+				<div class="alert alert-info">
+					<p>Esta es una plataforma privada de aliados y asociados a AMARC </p>
 
 					<p>Si usted tiene algún problema para entrar a su cuenta o desea solicitar una nueva cuenta para entrar a la plataforma, le sugerimos escribir a los siguientes contactos:</p>
 
@@ -52,8 +53,6 @@
 					<p>Martha Olivera
 					<b>martha@simas.org.ni</b></p>
 
-					<p>Winston Berrios
-					<b>wberrios@cafod.org.uk </b></p>
 				</div>
 			</div>
 		</div>

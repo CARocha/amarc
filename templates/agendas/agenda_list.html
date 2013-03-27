@@ -61,7 +61,7 @@
 	  </div>
 	</div>
 </div>
-<div class="row">
+<div class="row body-content">
 	<div class="container">
 		{% if request.GET.shva == 'erase' %}
             <div class="alert fade in">
@@ -143,7 +143,7 @@
 						 		{% if contraparte.pais.id == pais.id%}
 						 		<div class="leyenda"style ="background:{{contraparte.font_color}}"></div>
 						 		<li>
-									<label class="checkbox"><input type="checkbox" name="contraparte" value="{{contraparte.id}}" >M{{contraparte.siglas}}</input></label>
+									<label class="checkbox"><input type="checkbox" name="contraparte" value="{{contraparte.id}}" >{{contraparte.siglas}}</input></label>
 								</li>
 						 		{%endif%}
 						 	{% endfor %}

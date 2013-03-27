@@ -33,7 +33,7 @@
       </div>
     </div>
 </div>
-<div class="row">
+<div class="row body-content">
 	<div class="container">
 		<div class="row">
 			<div class="span12">
@@ -53,9 +53,12 @@
 					    BUSCAR
 					  </li>
 					  <li>
-						<form class="form-search form-inline" action="." method="GET">
-						  <input type="text" class="input-medium search-query" style="width:115px" name="q" value="{% if query %} {{query}} {% endif%}" />
-						  <button type="submit" class="btn"><i class="icon-search button-icon"></i></button>
+										<form class="form-search form-inline" action="." method="GET">
+							<div class="input-prepend">
+						 		 <button type="submit" class="btn"><i class="icon-search button-icon"></i></button>
+
+						 	 <input type="text" class=" search-query" style="width:100px; height:18px;" name="q" value="{% if query %} {{query}} {% endif%}" />
+							</div>
 						</form>
 					  </li>
 					  <li class="nav-header">

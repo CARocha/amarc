@@ -1448,3 +1448,19 @@ form hr {
 .elemento-video img {
   margin-bottom: 10px;
 }
+.admin .multimedia_fotos img {
+  position: static;
+}
+.admin .adminlogo {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.admin .btn {
+  padding: 3px 12px;
+}
+.admin .crear-contraparte .form-inline {
+  margin-right: 60px;
+}
+.admin .crear-contraparte .control-label {
+  margin-right: 10px;
+}

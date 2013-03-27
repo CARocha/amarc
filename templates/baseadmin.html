@@ -5,7 +5,7 @@
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
-	<title>{%block title%}AMARC{%endblock%}</title>
+  <title>{%block title%}AMARC{%endblock%}</title>
   <!--[<link type="text/css" rel="stylesheet"  href="/files/css/cafod.css">-->
   {% load compress %} 
   {% compress css %}
@@ -16,7 +16,6 @@
     <link href="/files/css/font-awesome.css" rel="stylesheet">
   {% endcompress %}
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-  {% compress js %}
    <script type="text/javascript" src="/files/js/audio.min.js"></script>
     <script type="text/javascript" src="/files/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/files/bootstrap/js/bootstrap-transition.js"></script>
@@ -32,13 +31,12 @@
         });
     });
     </script>
-  {% endcompress %}
       <!--[if IE 7]>
       <link href="{{ STATIC_URL }}/files/css/font-awesome-ie7.css" rel="stylesheet">
     <![endif]-->
   {%block extra_js%}{%endblock%}
 </head>
-<body>
+<body class="admin">
 
 {% block header %}
   
@@ -49,12 +47,12 @@
                 AMARC NICARAGUA 
               </a>
               <ul class="nav pull-right">
-                  <li class="active"><a href="/"><i class="icon-home"></i>Inicio</a></li>
-                  <li><a href="/notas">Noticias</a></li>
-                  <li><a href="/agendas/eventos">Eventos</a></li>
-                  <li><a href="/contrapartes">Asociados</a></li>
-                  <li><a href="#">Aliados</a></li>
-                  <li><a href="#">Producciones</a></li>
+                  <li id="inicio-menu"><a href="/"><i class="icon-home"></i>Inicio</a></li>
+                  <li id="noticias-menu"><a href="/notas">Noticias</a></li>
+                  <li id="eventos-menu"><a href="/agendas/eventos">Eventos</a></li>
+                  <li id="asociados-menu"><a href="/contrapartes">Asociados</a></li>
+                  <li id="aliados-menu"><a href="/temporal-lista-aliado">Aliados</a></li>
+                  <li id="producciones-menu"><a href="/temporal-producciones-audio">Producciones</a></li>
                   
                   <li class="divider-vertical"></li>
                   {% if user.username %}
@@ -83,20 +81,20 @@
           <div class="span12">
             <div class="row">
                 <div class="span3" >
-                  <img src="/files/img/cafodlogoadmin.png">
+                  <img src="/files/img/adminlogo.png" class="adminlogo">
                 </div>
                 <div class="span9" id="barra-admin">
-                  <div class="divisor-barra-admin"></div>
+                  
                   <a href="/foros/privado/nota" class="notaiconadmin">Mis Notas</a>
-                  <div class="divisor-barra-admin"></div>
+                  
                   <a href="/agendas/calendario" class="agendaiconadmin">Mi Agenda</a>
-                  <div class="divisor-barra-admin"></div>
+                  
                   <a href="/foros" class="foroiconadmin">Foro</a>
-                  <div class="divisor-barra-admin"></div>
+                  
                   <a href="/foros/privado/documento" class="documentosiconadmin">Documentos</a>
-                  <div class="divisor-barra-admin"></div>
+                  
                   <a href="/foros/privado/multimedia_fotos" class="multimediaiconadmin">Multimedia</a>
-                  <div class="divisor-barra-admin"></div>
+                  
                   <a href="/contrapartes/mensaje/ver" class="adminmensaje">Mensajes</a>
                   <div class="clean"></div>
                 </div>
@@ -150,6 +148,7 @@
       </div>
   </footer>
 {%endblock%}
+
 
 </body>
 </html>

@@ -36,19 +36,19 @@
                           </div>
                         </div>  
     {%endif%}
-<div class="row">
+<div class="row body-content">
 	<div class="container">
 		<div class="row">
 			<div class="span6">
 				<div class="alert alert-success">Crear mensaje</div>
 				<div class="well mensajeform">
-					<center><a class='btn btn-success' href="javascript:seleccionar_todo()"><i class="icon-ok icon-white"></i>Seleccionar todos</a></center>
+					<center><a class='btn btn-info' href="javascript:seleccionar_todo()"><i class="icon-ok icon-white"></i>Seleccionar todos</a></center>
 					<form name='fl' action="." method="post" accept-charset="utf-8">{% csrf_token %}
 						{{form.media}}
 						{{form.user}}<br>
 						<div class="clean"></div><br>
 						{{form.mensaje}}<Br>
-						<input type="submit" class="btn btn-success" name="enviar" value="Enviar">
+						<input type="submit" class="btn btn-info" name="enviar" value="Enviar">
 					</form>
 				</div>
 			</div>

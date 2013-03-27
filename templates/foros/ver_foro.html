@@ -72,7 +72,7 @@ $(document).ready(function() {
       </div>
     </div>
 </div>
-<div class="row">
+<div class="row body-content">
 	<div class="container">
 		{% if request.GET.b == 'editado' %}
             <div class="alert fade in">
@@ -85,6 +85,7 @@ $(document).ready(function() {
 				<h1 class="titulo-grande">{{discusion.nombre}}</h1>
 				<div class="extrainfofull"></div>
 				{{discusion.contenido|safe}}
+				{% if discusion.fotos.all %}
 				<div class="sidebar-title">Fotos</div>
 					{%if discusion.fotos.all%}
 						<div class="thumbs" style="margin-top:10px">
@@ -94,6 +95,7 @@ $(document).ready(function() {
 						<div class="clean"></div>
 					    </div>
 					{%endif%}
+				{%endif%}
 			</div>
 			<div class="span4">
 				<table class="table table-bordered table-condensed table-striped">
@@ -348,7 +350,7 @@ $(document).ready(function() {
 	</div>
 </div>
 
-<div class="row" id="formaporte">
+<div class="row body-content" id="formaporte" style="padding-top:0px">
 	<div class="container">
             <div class="row">
                 <div class="span12">
@@ -428,7 +430,7 @@ $(document).ready(function() {
                   Un aporte al foro
                 </div>
                 <div class="well" id="actionbuttons">
-                <input class="btn btn-large btn-success " style="" type="submit" id="submitfoo" value="Guardar" />
+                <input class="btn btn-large btn-info " style="" type="submit" id="submitfoo" value="Guardar" />
                 <a href="/foros" class="btn btn-large">Cerrar</a>
                 </div>
 			</div>
