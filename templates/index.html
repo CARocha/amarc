@@ -100,13 +100,11 @@
               <div class="widget-audio">
                 <audio preload></audio>
                   <ol>
+                      {% for obj in audio %}
+                        <li><a href="#" data-src="/files/{{obj.audio}}">{{obj.nombre_audio}}</a></li>
+                      {% empty %}
                         <li><a href="#" data-src="http://s3.amazonaws.com/audiojs/01-dead-wrong-intro.mp3">dead wrong intro</a></li>
-                        <li><a href="#" data-src="http://s3.amazonaws.com/audiojs/02-juicy-r.mp3">juicy-r</a></li>
-                        <li><a href="#" data-src="http://s3.amazonaws.com/audiojs/03-its-all-about-the-crystalizabeths.mp3">it's all about the crystalizabeths</a></li>
-                        <li><a href="#" data-src="http://s3.amazonaws.com/audiojs/04-islands-is-the-limit.mp3">islands is the limit</a></li>
-                        <li><a href="#" data-src="http://s3.amazonaws.com/audiojs/05-one-more-chance-for-a-heart-to-skip-a-beat.mp3">one more chance for a heart to skip a beat</a></li>
-                        <li><a href="#" data-src="http://s3.amazonaws.com/audiojs/06-suicidal-fantasy.mp3">suicidal fantasy</a></li>
-                        <li><a href="#" data-src="http://s3.amazonaws.com/audiojs/07-everyday-shelter.mp3">everyday shelter</a></li>
+                      {% endfor %}
                         <br>
                   </ol>
               </div>
@@ -130,7 +128,7 @@
         <br>
             <div class="span9 radios-index">
                 {%for c in contrapartes%}
-                    <a href="{{c.get_absolute_url}}">{{c.nombre}}<br><span class="frecuencia">89.9 fm</span></a></li>  
+                    <a href="{{c.get_absolute_url}}">{{c.nombre}}<br><span class="frecuencia">{{c.frecuecia}}</span></a></li>  
                 {%endfor%}       
             </div>
             <div class="span3">
