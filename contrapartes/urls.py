@@ -18,5 +18,6 @@ urlpatterns = patterns('contrapartes.views',
     url(r'^usuario/editar/$', 'editar_usuario_perfil', name='editar-usuario-perfil'),
     url(r'^mensaje/ver/$', 'enviar_mensaje', name="enviar-mensaje"),
     url(r'^estadisticas/ver/$', 'estadisticas', name="estadisticas"),
+    url(r'^ver_mapa_completo/$', 'datos_mapa', name="datos-mapa"),
     
     )
