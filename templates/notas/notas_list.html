@@ -47,7 +47,8 @@
 			</div>
 			<hr>
 		{% endfor %}
-	    <ul class="pagination">
+	    <div class="pagination">
+	    	<ul>
 	        {% if notas.has_previous %}
 	        <li>
 	          <a href="{% url notas_list %}?page={{ notas.previous_page_number }}">
@@ -67,7 +68,8 @@
 	                Siguiente →</a>
 	         </li>
 	         {% endif %}
-	    </ul>
+	    	</ul>
+	    </div>
 	</div>
 </div>
 {% endblock %}

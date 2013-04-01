@@ -3,7 +3,6 @@
 <script type="text/javascript" src="/files/js/jquery.bxSlider.min.js"></script>
 <script type="text/javascript">
   $(document).ready(function(){
-
   var slider = $('#slider1').bxSlider({
     controls: true,
     auto:true,
@@ -16,37 +15,50 @@
   // para resaltar menu
   $('#inicio-menu').addClass('active');
 
-});
-</script>
-    <script>
-      $(function() { 
-        // Setup the player to autoplay the next track
-        var a = audiojs.createAll({
-          trackEnded: function() {
-            var next = $('ol li.playing').next();
-            if (!next.length) next = $('ol li').first();
-            next.addClass('playing').siblings().removeClass('playing');
-            audio.load($('a', next).attr('data-src'));
-            audio.play();
-          }
-        });
-        
-        // Load in the first track
-        var audio = a[0];
-            first = $('ol a').attr('data-src');
-        $('ol li').first().addClass('playing');
-        audio.load(first);
+  // altura de linea de eventos basado en tamaño de div
+  altura_evento = $(".new-evento-index").height();
+  if (altura_evento < 300) {
+    $(".index-mapa").css("margin-bottom","20px");
+    $(".new-evento-index").height(altura_evento+20);
+  }
+  if (altura_evento < 230) {
+    $(".index-mapa").css("margin-bottom","20px");
+    $(".new-evento-index").height(altura_evento+40);
+  }
 
-        // Load in a track on click
-        $('ol li').click(function(e) {
-          e.preventDefault();
-          $(this).addClass('playing').siblings().removeClass('playing');
-          audio.load($('a', this).attr('data-src'));
-          audio.play();
-        });
-        
-      });
-    </script>
+});
+
+
+</script>
+<script>
+  $(function() { 
+    // Setup the player to autoplay the next track
+    var a = audiojs.createAll({
+      trackEnded: function() {
+        var next = $('ol li.playing').next();
+        if (!next.length) next = $('ol li').first();
+        next.addClass('playing').siblings().removeClass('playing');
+        audio.load($('a', next).attr('data-src'));
+        audio.play();
+      }
+    });
+    
+    // Load in the first track
+    var audio = a[0];
+        first = $('ol a').attr('data-src');
+    $('ol li').first().addClass('playing');
+    audio.load(first);
+
+    // Load in a track on click
+    $('ol li').click(function(e) {
+      e.preventDefault();
+      $(this).addClass('playing').siblings().removeClass('playing');
+      audio.load($('a', this).attr('data-src'));
+      audio.play();
+    });
+    
+  });
+</script>
 {%endblock%}
 {%block contenido%}
 

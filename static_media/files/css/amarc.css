@@ -589,7 +589,7 @@ form hr {
   position: relative;
 }
 .tab-media {
-  width: 490px;
+  width: 460px;
   float: left;
 }
 .file label {
@@ -1111,11 +1111,13 @@ form hr {
 .new-evento-index {
   margin-top: 40px;
   margin-left: 20px;
+  border-left: 1px solid #74a8e2;
 }
 .new-evento-index .fecha {
   float: left;
   font-size: 12px;
   padding-left: 30px;
+  line-height: 1px;
   background: url(../img/event-icon.png) center left no-repeat;
 }
 .new-evento-index .evento-elemento {
@@ -1124,7 +1126,8 @@ form hr {
   padding: 10px;
   background: #fff;
   border-left: #74a8e2 solid 6px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+  margin-top: -20px;
   font-size: 13px;
   transition: border-color 0.7s;
   -moz-transition: border-color 0.7s;
@@ -1139,16 +1142,11 @@ form hr {
   -webkit-transition: border-color 0.7s;
   -o-transition: border-color 0.7s;
 }
-.new-evento-index .line-event {
-  border-left: 1px solid #74a8e2;
-  float: left;
-  height: 310px;
-  margin-top: -230px;
-  width: 1px;
-}
 .new-evento-index .mas-eventos {
   padding-left: 90px;
   font-weight: bold;
+  padding-bottom: 20px;
+  display: block;
 }
 .new-evento-index .mas-eventos:hover {
   text-decoration: none;

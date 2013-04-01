@@ -44,15 +44,15 @@
                 {% for obj in audio %}
                     <div class="elemento-audio">
                     <div class="nombre-radio">
-                        Aca que va
+                        Nombre de radio
                     </div>
                     <div class="player-right">
                         <div class="player">
-                            <audio src="{{obj.audio}}" preload="auto" />
+                            <audio src="/files/{{obj.audio}}" preload="auto" />
                         </div>
                         <br>
                         {{obj.nombre_audio}}
-                        <a href="{{obj.audio}}" class="boton-blue-leer ">Descargar</a>
+                        <a href="/files/{{obj.audio}}" class="boton-blue-leer ">Descargar</a>
                     </div>
                     <div class="clearfix"></div>
                 </div>
