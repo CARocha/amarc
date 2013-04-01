@@ -26,7 +26,7 @@
                 <div class="span7">
                  <div class="btn-group acciones">
                         {% if request.user.get_profile.contraparte.id == contra.id or request.user.is_superuser %}
-                            <a class="btn" href="/contrapartes/editar/{{contra.id}}"><i class="icon-pencil"></i>Editar</a>
+                            <a class="btn" href="/admin/aliados/aliados/"><i class="icon-pencil"></i>Editar</a>
                         {% endif %}
                     </div>
                 </div>
@@ -45,54 +45,53 @@
                     <a class="close" href="#">x</a>
                 </div>
                 {% endif %}
-               <h1 class="titulo-grande">{{contra.nombre}} Nombre del aliado</h1>
+               <h1 class="titulo-grande">{{object.nombre}}</h1>
             </div>
             <div class="span5">
             </div>
         </div>
         <div class="row detalle-full">
             <div class="span7 divisordoble">
-                <img class="contraparte-detalle-logo"src="/files/img/sample-logo.png" alt="{{contra.nombre}}">
+                <img class="contraparte-detalle-logo"src="{{object.logo.url_180x160}}" alt="{{object.nombre}}">
                 <table class="table  table-bordered table-striped table-condensed contraparte-tabla">
                     <tbody>
 
-                        {%if contra.fundacion%}
+                        {%if object.fundacion%}
                         <tr>
                             <td><b>Año de fundación</b></td>
-                            <td>{{contra.fundacion}}</td>
+                            <td>{{object.fundacion}}</td>
                         </tr>
                         {%endif%}
-                        {%if contra.contacto%}
+                        {%if object.contacto%}
                         <tr>
                             <td><b>Contacto</b></td>
-                            <td>{{contra.contacto}}</td>
+                            <td>{{object.contacto}}</td>
                         </tr>
                         {%endif%}
-                        {%if contra.telefono%}
+                        {%if object.telefono%}
                         <tr>
                             <td><b>Teléfono</b></td>
-                            <td>{{contra.telefono}}</td>
+                            <td>{{object.telefono}}</td>
                         </tr>
                         {%endif%}
-                        {%if contra.sitio_web%}
+                        {%if object.sitio_web%}
                         <tr>
                             <td><b>Sitio web</b></td>
-                            <td><a href="{{contra.sitio_web}}">{{contra.sitio_web}}</a></td>
+                            <td><a href="{{object.sitio_web}}">{{object.sitio_web}}</a></td>
                         </tr>
                         {%endif%}
                     </tbody> 
                 </table>
                 <div class="clean"></div>
                 <br>
-                 {% if contra.temas %}
+                 {% if object.temas %}
                      <div class="destacado-content">Temas</div>
-                     {{contra.temas|safe}}
+                     {{object.temas|safe}}
                  {% endif %}
-                 {% if contra.generalidades %}
+                 {% if object.generalidades %}
                      <div class="destacado-content">Generalidades</div>
-                    {{contra.generalidades|safe}}
+                    {{object.generalidades|safe}}
                  {% endif %}
-                 Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Nullam id dolor id nibh ultricies vehicula ut id elit. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Maecenas faucibus mollis interdum.
             </div>
             <div class="span5 divisordoble">
                 <div class="sidebar-title">NOTAS DE ESTE ALIADO</div>

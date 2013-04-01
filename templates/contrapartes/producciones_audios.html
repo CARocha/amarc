@@ -41,110 +41,24 @@
                     Audios
                 </span>
                 <br><br><br>
-                <div class="elemento-audio">
+                {% for obj in audio %}
+                    <div class="elemento-audio">
                     <div class="nombre-radio">
-                        Radio Ecologica
+                        Aca que va
                     </div>
                     <div class="player-right">
                         <div class="player">
-                            <audio src="http://s3.amazonaws.com/audiojs/03-its-all-about-the-crystalizabeths.mp3" preload="auto" />
+                            <audio src="{{obj.audio}}" preload="auto" />
                         </div>
                         <br>
-                        Titulo ejemplo de audio
-                        <a href="#" class="boton-blue-leer">Descargar</a>
+                        {{obj.nombre_audio}}
+                        <a href="{{obj.audio}}" class="boton-blue-leer ">Descargar</a>
                     </div>
                     <div class="clearfix"></div>
                 </div>
-
-                <div class="elemento-audio">
-                    <div class="nombre-radio">
-                        Radio Ecologica
-                    </div>
-                    <div class="player-right">
-                        <div class="player">
-                            <audio src="http://s3.amazonaws.com/audiojs/03-its-all-about-the-crystalizabeths.mp3" preload="auto" />
-                        </div>
-                        <br>
-                        Titulo ejemplo de audio
-                        <a href="#" class="boton-blue-leer">Descargar</a>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-
-                <div class="elemento-audio">
-                    <div class="nombre-radio">
-                        Radio Ecologica
-                    </div>
-                    <div class="player-right">
-                        <div class="player">
-                            <audio src="http://s3.amazonaws.com/audiojs/03-its-all-about-the-crystalizabeths.mp3" preload="auto" />
-                        </div>
-                        <br>
-                        Titulo ejemplo de audio
-                        <a href="#" class="boton-blue-leer ">Descargar</a>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-
-                <div class="elemento-audio">
-                    <div class="nombre-radio">
-                        Radio Ecologica
-                    </div>
-                    <div class="player-right">
-                        <div class="player">
-                            <audio src="http://s3.amazonaws.com/audiojs/03-its-all-about-the-crystalizabeths.mp3" preload="auto" />
-                        </div>
-                        <br>
-                        Titulo ejemplo de audio
-                        <a href="#" class="boton-blue-leer ">Descargar</a>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-
-                <div class="elemento-audio">
-                    <div class="nombre-radio">
-                        Radio Ecologica
-                    </div>
-                    <div class="player-right">
-                        <div class="player">
-                            <audio src="http://s3.amazonaws.com/audiojs/03-its-all-about-the-crystalizabeths.mp3" preload="auto" />
-                        </div>
-                        <br>
-                        Titulo ejemplo de audio
-                        <a href="#" class="boton-blue-leer ">Descargar</a>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-
-                <div class="elemento-audio">
-                    <div class="nombre-radio">
-                        Radio Ecologica
-                    </div>
-                    <div class="player-right">
-                        <div class="player">
-                            <audio src="http://s3.amazonaws.com/audiojs/03-its-all-about-the-crystalizabeths.mp3" preload="auto" />
-                        </div>
-                        <br>
-                        Titulo ejemplo de audio
-                        <a href="#" class="boton-blue-leer ">Descargar</a>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-
-                <div class="elemento-audio">
-                    <div class="nombre-radio">
-                        Radio Ecologica
-                    </div>
-                    <div class="player-right">
-                        <div class="player">
-                            <audio src="http://s3.amazonaws.com/audiojs/03-its-all-about-the-crystalizabeths.mp3" preload="auto" />
-                        </div>
-                        <br>
-                        Titulo ejemplo de audio
-                        <a href="#" class="boton-blue-leer ">Descargar</a>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
+                {% empty %}
+                    <p>No hay audios</p>
+                {% endfor %}
 
                 <div class="pagination">
                   <ul>
@@ -162,8 +76,8 @@
             <div class='span3 sidebar-radios'>
                 <center>
                 <div class="btn-group">
-                  <a href="/temporal-producciones-audio" class="btn btn-large active">Audios</a>
-                  <a href="/temporal-producciones-video" class="btn btn-large ">Videos</a>
+                  <a href="/aliados/videos" class="btn btn-large active">Audios</a>
+                  <a href="/aliados/audios" class="btn btn-large ">Videos</a>
                 </div>
                 </center>
                 <br>

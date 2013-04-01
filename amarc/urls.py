@@ -25,6 +25,7 @@ urlpatterns = patterns('',
     (r'^$', 'notas.views.index'),
     (r'^ckeditor/', include('ckeditor.urls')),
     url(r'^notas/', include('notas.urls')),
+    url(r'^aliados/', include('aliados.urls')),
     url(r'^contrapartes/', include('contrapartes.urls')),
     url(r'^agendas/', include('agendas.urls')),
     url(r'^admin/', include(admin.site.urls)),
@@ -33,8 +34,6 @@ urlpatterns = patterns('',
     url(r'^busqueda/$', include('django_google_cse.urls')),
 
     #temporales de secciones que no existen
-    url(r'^temporal-lista-aliado/$', direct_to_template, { 'template': 'contrapartes/aliado_list.html' }),
-    url(r'^temporal-detalle-aliado/$', direct_to_template, { 'template': 'contrapartes/aliado_detail.html' }),
     url(r'^temporal-producciones-video/$', direct_to_template, { 'template': 'contrapartes/producciones_videos.html' }),
     url(r'^temporal-producciones-audio/$', direct_to_template, { 'template': 'contrapartes/producciones_audios.html' }),
 )
