@@ -7,6 +7,7 @@ from utils import *
 from south.modelsinspector import add_introspection_rules
 from ckeditor.fields import RichTextField
 import datetime
+from lugar.models import *
 
 add_introspection_rules ([], ["^ckeditor\.fields\.RichTextField"])
 
@@ -24,6 +25,11 @@ class ColorField(models.CharField):
         kwargs['widget'] = ColorPickerWidget
         return super(ColorField, self).formfield(**kwargs)
 
+CHOICE_LISTA = (
+        (1, "Asociados"),
+        (2, "Aliados")
+    )
+
 class Pais(models.Model):
     nombre = models.CharField(max_length=200)
     latitud = models.FloatField(blank=True, null=True)
@@ -39,11 +45,14 @@ class Pais(models.Model):
 class Contraparte(models.Model):
     nombre = models.CharField(max_length=200)
     siglas = models.CharField("Siglas o nombre corto",help_text="Siglas o nombre corto de la oganización",max_length=200,blank=True, null=True)
+    frecuecia = models.CharField('Frecuencia',max_length=50, null=True, blank=True)
     logo = ImageWithThumbsField(upload_to=get_file_path,
                                    sizes=((350,250), (70,60),(180,160)), 
                                    null=True, blank=True)
     fileDir = 'contrapartes/logos/'
     pais = models.ForeignKey(Pais)
+    municipio = models.ForeignKey(Municipio)
+    tipo = models.IntegerField(choices=CHOICE_LISTA, null=True, blank=True)
     fundacion = models.CharField('Año de fundación', max_length=200, 
                                  blank=True, null=True)
     temas = RichTextField(blank=True, null=True)
@@ -55,7 +64,7 @@ class Contraparte(models.Model):
     font_color = ColorField(blank=True,unique=True)
 
     class Meta:
-        verbose_name_plural = "Contrapartes"
+        verbose_name_plural = "Asociados"
         unique_together = ("font_color", "nombre")
 
     def __unicode__(self):

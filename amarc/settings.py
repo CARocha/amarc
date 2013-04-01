@@ -124,6 +124,7 @@ INSTALLED_APPS = (
     'ckeditor',
     'compressor',
     'django_google_cse',
+    'lugar',
 )
 
 # A sample logging configuration. The only tangible logging

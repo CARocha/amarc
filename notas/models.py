@@ -19,6 +19,8 @@ class Notas(models.Model):
     contenido = RichTextField()
     fotos = generic.GenericRelation(Imagen)
     adjuntos = generic.GenericRelation(Documentos)
+    video = generic.GenericRelation(Videos)
+    audio = generic.GenericRelation(Audios)
 
     user = models.ForeignKey(User)
 

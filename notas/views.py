@@ -17,6 +17,7 @@ import operator
 from django.core.mail import send_mail, EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.contrib.sites.models import Site
+from foros.forms import *
 
 # Create your views here.
 
@@ -96,6 +97,8 @@ def crear_nota(request):
         form = NotasForms(request.POST)
         form2 = FotoForm(request.POST, request.FILES)
         form3 = AdjuntoForm(request.POST, request.FILES)
+        form4 = VideoForm(request.POST)
+        form5 = AudioForm(request.POST, request.FILES)
 
     	if form.is_valid() and form2.is_valid() and form3.is_valid():
             form_uncommited = form.save(commit=False)
@@ -109,6 +112,14 @@ def crear_nota(request):
                 form3_uncommited = form3.save(commit=False)
                 form3_uncommited.content_object = form_uncommited
                 form3_uncommited.save()
+            if form4.cleaned_data['nombre_video'] != '':
+                form4_uncommitd = form4.save(commit=False)
+                form4_uncommitd.content_object = form_uncommited
+                form4_uncommitd.save()
+            if form5.cleaned_data['nombre_audio'] != '':
+                form5_uncommitd = form5.save(commit=False)
+                form5_uncommitd.content_object = form_uncommited
+                form5_uncommitd.save()
 
             thread.start_new_thread(notify_all_notas, (form_uncommited,))
             return HttpResponseRedirect('/foros/privado/nota/')
