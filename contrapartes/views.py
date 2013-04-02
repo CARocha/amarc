@@ -17,6 +17,8 @@ import thread
 import datetime
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.utils import simplejson
+from foros.models import Videos, Audios
+
 
 # Create your views here.
 #def contrapartes_index(request):
@@ -25,8 +27,13 @@ from django.utils import simplejson
 #                                 context_instance=RequestContext(request))
 
 def lista_contrapartes_mapa(request):
-    contra = Contraparte.objects.all()
+    contra = Contraparte.objects.filter(tipo=1)
     return render_to_response('contrapartes/contraparte_list_mapa.html', locals(),
+                                 context_instance=RequestContext(request))
+
+def lista_contrapartes(request):
+    object_list = Contraparte.objects.filter(tipo=1)
+    return render_to_response('contrapartes/contraparte_list.html', locals(),
                                  context_instance=RequestContext(request))
 
 def detalle_contraparte(request,id):
@@ -220,13 +227,58 @@ def estadisticas(request):
 def datos_mapa(request):
     if request.is_ajax():
         lista = []
-        for objeto in Contraparte.objects.all():
+        for objeto in Contraparte.objects.filter(tipo=1):
             dicc = dict(nombre=objeto.nombre,
                         id=objeto.id,
-                        lon=float(objeto.longitud), 
-                        lat=float(objeto.latitud),
+                        lon=float(objeto.municipio.longitud), 
+                        lat=float(objeto.municipio.latitud),
                         ruta=objeto.get_absolute_url(),
                     )
             lista.append(dicc)
         serializado = simplejson.dumps(lista)
-        return HttpResponse(serializado, mimetype='application/json')    
+        return HttpResponse(serializado, mimetype='application/json') 
+
+def todos_videos(request):
+    audio = Audios.objects.all()
+
+    paginator = Paginator(audio, 5)
+
+    page = request.GET.get('page')
+    try:
+        audios = paginator.page(page)
+    except PageNotAnInteger:
+        audios = paginator.page(1)
+    except EmptyPage:
+        audios = paginator.page(paginator.num_pages)
+
+    return render_to_response('contrapartes/producciones_audios.html', locals(),
+                              context_instance=RequestContext(request))
+
+def todos_audios(request):
+    video = Videos.objects.all()
+
+    paginator = Paginator(video, 5)
+
+    page = request.GET.get('page')
+    try:
+        videos = paginator.page(page)
+    except PageNotAnInteger:
+        videos = paginator.page(1)
+    except EmptyPage:
+        videos = paginator.page(paginator.num_pages)
+
+    return render_to_response('contrapartes/producciones_videos.html', locals(),
+                              context_instance = RequestContext(request))
+
+
+def lista_aliados(request):
+    object_list = Contraparte.objects.filter(tipo=2)
+
+    return render_to_response('aliados/aliado_list.html', locals(),
+                            context_instance = RequestContext(request))
+
+def detalle_aliados(request, id):
+    object = get_object_or_404(Contraparte, pk=id)
+
+    return render_to_response('aliados/aliado_detail.html', locals(),
+                            context_instance = RequestContext(request))

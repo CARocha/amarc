@@ -3,10 +3,7 @@ from django.views.generic import ListView, DetailView
 from models import Contraparte
 
 urlpatterns = patterns('contrapartes.views',
-    url(r'^$', ListView.as_view(model=Contraparte, 
-    	                        template_name="contraparte/contraparte_list.html"),
-                                name="contraparte-list"),
-
+    url(r'^$', 'lista_contrapartes', name="contraparte-list"),
     url(r'^mapa/$', 'lista_contrapartes_mapa', name="contraparte-list-mapa"),
     url(r'^(?P<id>\d+)/$', 'detalle_contraparte', name="detalle-contraparte"),
     # url(r'^(?P<pk>\d+)/$', DetailView.as_view(model=Contraparte, 
@@ -19,5 +16,9 @@ urlpatterns = patterns('contrapartes.views',
     url(r'^mensaje/ver/$', 'enviar_mensaje', name="enviar-mensaje"),
     url(r'^estadisticas/ver/$', 'estadisticas', name="estadisticas"),
     url(r'^ver_mapa_completo/$', 'datos_mapa', name="datos-mapa"),
+    url(r'^videos/$', 'todos_videos', name='todos-videos'),
+    url(r'^audios/$', 'todos_audios', name='todos-audios'),
+    url(r'^lista/$', 'lista_aliados', name='todos-lista-aliados'),
+    url(r'^detalle/(?P<pk>\d+)/$', 'lista_aliados', name='todos-lista-aliados'),
     
     )

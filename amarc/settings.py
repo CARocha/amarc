@@ -117,7 +117,7 @@ INSTALLED_APPS = (
     'magicembed',
     'foros',
     'notas',
-    'aliados',
+    #'aliados',
     'south',
     'tagging',
     'tagging_autocomplete',
