@@ -45,56 +45,56 @@
                     <a class="close" href="#">x</a>
                 </div>
                 {% endif %}
-               <h1 class="titulo-grande">{{object.nombre}}</h1>
+               <h1 class="titulo-grande">{{contra.nombre}}</h1>
             </div>
             <div class="span5">
             </div>
         </div>
         <div class="row detalle-full">
             <div class="span7 divisordoble">
-                <img class="contraparte-detalle-logo"src="{{object.logo.url_180x160}}" alt="{{object.nombre}}">
+                <img class="contraparte-detalle-logo"src="{{contra.logo.url_180x160}}" alt="{{contra.nombre}}">
                 <table class="table  table-bordered table-striped table-condensed contraparte-tabla">
                     <tbody>
 
-                        {%if object.fundacion%}
+                        {%if contra.fundacion%}
                         <tr>
                             <td><b>Año de fundación</b></td>
-                            <td>{{object.fundacion}}</td>
+                            <td>{{contra.fundacion}}</td>
                         </tr>
                         {%endif%}
-                        {%if object.contacto%}
+                        {%if contra.contacto%}
                         <tr>
                             <td><b>Contacto</b></td>
-                            <td>{{object.contacto}}</td>
+                            <td>{{contra.contacto}}</td>
                         </tr>
                         {%endif%}
-                        {%if object.telefono%}
+                        {%if contra.telefono%}
                         <tr>
                             <td><b>Teléfono</b></td>
-                            <td>{{object.telefono}}</td>
+                            <td>{{contra.telefono}}</td>
                         </tr>
                         {%endif%}
-                        {%if object.sitio_web%}
+                        {%if contra.sitio_web%}
                         <tr>
                             <td><b>Sitio web</b></td>
-                            <td><a href="{{object.sitio_web}}">{{object.sitio_web}}</a></td>
+                            <td><a href="{{contra.sitio_web}}">{{contra.sitio_web}}</a></td>
                         </tr>
                         {%endif%}
                     </tbody> 
                 </table>
                 <div class="clean"></div>
                 <br>
-                 {% if object.temas %}
+                 {% if contra.temas %}
                      <div class="destacado-content">Temas</div>
-                     {{object.temas|safe}}
+                     {{contra.temas|safe}}
                  {% endif %}
-                 {% if object.generalidades %}
+                 {% if contra.generalidades %}
                      <div class="destacado-content">Generalidades</div>
-                    {{object.generalidades|safe}}
+                    {{contra.generalidades|safe}}
                  {% endif %}
             </div>
             <div class="span5 divisordoble">
-                <div class="sidebar-title">NOTAS DE ESTE ALIADO</div>
+                <div class="sidebar-title">NOTAS</div>
                 <div class="dividerline"></div>
                 {%for nota in notas%}
                     <div class="nota-sidebar">

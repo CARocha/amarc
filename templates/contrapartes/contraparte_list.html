@@ -16,7 +16,7 @@
             <div class="row">
                 <div class="span5">
                     <div class="encabezado-title">
-                        CONTRAPARTES
+                        ASOCIADOS
                     </div>
                 </div>
                 <div class="span7">
@@ -33,7 +33,13 @@
             {% for contraparte in object_list %}
                     <div class='asociado-link'>
                         <span class="frecuencia" style="right:0;position: relative;">105.5 fm</span>
-                        <center><a href="{{contraparte.get_absolute_url}}" ><img src="{{contraparte.logo.url_180x160}}" alt="{{contraparte.nombre}}"></a><br><br> 
+                        <center><a href="{{contraparte.get_absolute_url}}" >
+                            {% if contraparte.logo %}
+                            <img src="{{contraparte.logo.url_180x160}}" ></a>
+                            {%else%}
+                            <br><br>
+                            {%endif%}
+                            <br><br> 
                         <a href="{{contraparte.get_absolute_url}}" class="titulo-medio">{{contraparte.nombre}}</a>
                         </center> 
                     </div>

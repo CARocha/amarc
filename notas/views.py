@@ -128,7 +128,8 @@ def crear_nota(request):
         form = NotasForms()
         form2 = FotoForm()
         form3 = AdjuntoForm()
-
+        form4 = VideoForm()
+        form5 = AudioForm()
     return render_to_response('notas/crear_nota.html', locals(),
     	                         context_instance=RequestContext(request))
 
@@ -137,8 +138,12 @@ def editar_nota(request, id):
     nota = get_object_or_404(Notas, id=id)
     NotaFormSet = generic_inlineformset_factory(Imagen, extra=5, max_num=5)
     Nota2FormSet = generic_inlineformset_factory(Documentos, extra=5, max_num=5)
+    NotavideoFormSet = generic_inlineformset_factory(Videos, extra=5, max_num=5)
+    NotaAudioFormSet = generic_inlineformset_factory(Audios, extra=5, max_num=5)
     form2 = NotaFormSet(instance=nota)
     form3 = Nota2FormSet(instance=nota)
+    form4 = NotavideoFormSet(instance=nota)
+    form5 = NotaAudioFormSet(instance=nota)
 
     if not nota.user == request.user and not request.user.is_superuser:
     	return HttpResponse("Usted no puede editar esta nota")

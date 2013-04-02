@@ -70,7 +70,7 @@
                   <div class=" bienvenida">
                      <img src="/files/img/logoheader.png" style="float:left;margin-right:20px;">
                      <p style="padding-top:10px;">
-                      Somos un grupos de radios comunitarias, que junto a organizaciones aliadas promueven el desarrollo social, los derechos humanos, la diversidad cultural, la pluralidad de informaciones y opiniones, a fin de  fortalecimiento de los vínculos que hacen a la esencia de la identidad cultural y social.
+                      Somos un grupos de radios comunitarias, que junto a organizaciones aliadas, promovemos el desarrollo social y ambiental, los derechos humanos, la diversidad cultural, la pluralidad de información y opinión, a fin de fortalecer los vínculos con la ciudadanía.
                      </p>
                    </div>
                    <div class="index-mapa">
@@ -91,7 +91,7 @@
                   <div class="new-evento-index">
                         {%for e in evento%}
                             <div class="fecha">{{e.inicio|date:"d F" }}</div>
-                            <a class="evento-elemento" href="/agendas/eventos/{{e.id}}">{{e.evento|safe|truncatewords_html:8}} </a>
+                            <a class="evento-elemento" href="/agendas/eventos/{{e.id}}">{{e.evento|safe|truncatewords_html:8|striptags}} </a>
                             <div class="clearfix"></div>
                         {%endfor%}
                         <a class="mas-eventos" href="/agendas/eventos/">Mas Eventos →</a>

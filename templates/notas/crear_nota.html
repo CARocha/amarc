@@ -73,6 +73,8 @@
 						<ul class="nav nav-tabs nav-tab-media">
 						  <li class="active"><a href="#fotos" data-toggle="tab"><i class="icon-camera"></i>Fotos e imágenes</a></li>
 						  <li><a href="#documentos" data-toggle="tab"><i class="icon-file"></i>Documentos</a></li>
+						                                                   <li><a href="#videos" data-toggle="tab"><i class="icon-film"></i>Videos</a></li>
+                                                  <li><a href="#audios" data-toggle="tab"><i class="icon-volume-up"></i>Audios</a></li>
 						</ul>
 						<div class="tab-content tab-media">
 						  <div class="tab-pane active" id="fotos">
@@ -91,6 +93,28 @@
 							{% endfor %}
 							<hr>
 						  </div>
+                        <div class="tab-pane" id="videos">
+                                <span class="label label-warning">VIDEOS</span><hr>
+                                
+                                {% for video in form4 %}
+         
+                                        {{video.label_tag}}
+                                        {{video}}
+
+                                {% endfor %}
+                                <hr>
+                          </div>
+                          <div class="tab-pane" id="audios">
+                                <span class="label label-warning">AUDIOS</span><hr>
+                               
+                                {% for audio in form5 %}
+  
+                                        {{audio.label_tag}}
+                                        {{audio}}
+           
+                                {% endfor %}
+                                <hr>
+                          </div>
 						</div>
 						<div class="clean"></div> 
 					</div>

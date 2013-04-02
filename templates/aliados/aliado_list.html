@@ -31,9 +31,15 @@
         <div class="row">
             <div class="span9">
                 {% for obj in object_list  %}
-                    <div class='asociado-link'>
-                        <center><a href="{{obj.get_absolute_url}}" ><img src="{{obj.logo.url_180x160}}" alt=""></a><br><br> 
-                        <a href="{{obj.get_absolute_url}}" class="titulo-medio">{{obj.nombre}}</a>
+                    <div class='aliado-link'>
+                        <center>
+                            {% if obj.logo %}
+                            <a href="/contrapartes/detalle/{{obj.id}}"><img src="{{obj.logo.url_180x160}}" ></a>
+                            {%else%}
+                            <br><br><br>
+                            {%endif%}
+                            <br><br> 
+                        <a href="/contrapartes/detalle/{{obj.id}}" class="titulo-medio">{{obj.nombre}}</a>
                         </center> 
                     </div>
                 {% empty %}

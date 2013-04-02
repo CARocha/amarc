@@ -277,8 +277,8 @@ def lista_aliados(request):
     return render_to_response('aliados/aliado_list.html', locals(),
                             context_instance = RequestContext(request))
 
-def detalle_aliados(request, id):
-    object = get_object_or_404(Contraparte, pk=id)
-
+def detalle_aliados(request,id):
+    contra = get_object_or_404(Contraparte, id=id)
+    notas = Notas.objects.filter(user__userprofile__contraparte__id=id).order_by('-fecha')
     return render_to_response('aliados/aliado_detail.html', locals(),
-                            context_instance = RequestContext(request))
+                                 context_instance=RequestContext(request))

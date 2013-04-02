@@ -36,14 +36,18 @@
 		{% for nota in notas %}
 			<div class="row">
 				<div class="span3">
+				{%if nota.fotos.all.count > 0%}
 				 {%for thumb in nota.fotos.all|slice:"1"%} 
-	                   <img  src="{{thumb.foto.url_220x160}}">
+	                   <a href="/notas/{{nota.id}}"><img  src="{{thumb.foto.url_220x160}}"><a/>
 	             {%endfor%}
+	            {%else%}
+	           		   <a href="/notas/{{nota.id}}"><img  src="/files/img/nofoto.png"><a/>
+	            {%endif%}
 				</div>
 				<div class="span9">
 						<div class="extrainfo">{{nota.fecha}} | {{nota.user.userprofile.contraparte.nombre}}</div>
 						<a href="/notas/ver/{{nota.id}}" class="titulo-medio">{{nota.titulo}}</a><br>
-						{{nota.contenido|safe|truncatewords_html:50}} 
+						{{nota.contenido|safe|truncatewords_html:50|striptags}} 
 						<a href="/notas/{{nota.id}}" class="boton-blue-leer">Leer más</a>
 				</div>
 			</div>

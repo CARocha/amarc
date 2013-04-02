@@ -1,4 +1,5 @@
 {% extends "baseadmin.html" %}
+  {% load magicembed_tags %}
 {% block extra_js%}
 <script type="text/javascript" src="/files/js/jquery.bxSlider.min.js"></script>
 <script type="text/javascript">
@@ -131,6 +132,52 @@ $(".alert").alert();
                       </tbody>
                     </table>
                 {%endif%}
+                {%if nota.video.all%}
+                <div class="sidebar-title">Video</div>
+                        <table class="table table-bordered table-condensed doc-sidebar">
+                          <tbody>
+                            {% for video in nota.video.all%}
+                            <tr>
+                                <td><a data-toggle="modal" data-target="#myModal{{video.id}}" href="#"><img  src="{{video.url|magicthumbnail}}" width="370" height="150">
+                                  <img src="/files/img/player.png" class="player-icon"></a>
+                                </td>
+                            </tr>
+                                <div class="modal fade hide modal-video" id="myModal{{video.id}}">
+                                  <div class="modal-header">
+                                    <a class="close" data-dismiss="modal">×</a>
+                                    <h3>{{video.nombre_video}}</h3>
+                                  </div>
+                                  <div class="modal-body">
+                                    <p>{{ video.url|magicembed:"640x480" }}</p>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <a href="#" data-dismiss="modal" class="btn">Cerrar</a>
+                                  </div>
+                                </div>  
+                            {% endfor %}
+                          </tbody>
+                        </table>
+              {%endif%}
+              {%if nota.audio.all%}
+                <div class="sidebar-title">Audio</div>
+                        <table class="table  table-bordered table-condensed doc-sidebar">
+                          <tbody>
+                            {% for audio in nota.audio.all%}
+                            <tr>
+                              <td>{{audio.nombre_audio}}</br>
+                      <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="280" height="20"
+                          codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab">
+                          <param name="movie" value="/files/js/singlemp3player.swf?file=/uploads/{{audio.audio}}&showDownload=true" />
+                          <param name="wmode" value="transparent" />
+                          <embed wmode="transparent" width="280" height="20" src="/files/js/singlemp3player.swf?file=/uploads/{{audio.audio}}&showDownload=true"
+                          type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+                      </object>
+                              </td>
+                            </tr>
+                            {% endfor %}
+                          </tbody>
+                        </table>
+              {%endif%}
             </div>
         </div>
         {%if request.user.is_authenticated%}

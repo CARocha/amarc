@@ -1,31 +1,39 @@
 {% extends "base.html"%}
 {% block extra_js%}
 <script type="text/javascript" src="/files/js/jquery.bxSlider.min.js"></script>
+<script type="text/javascript" src="/files/js/FeedEk.js"></script>
+<link href="/files/css/FeedEk.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
   $(document).ready(function(){
-  var slider = $('#slider1').bxSlider({
-    controls: true,
-    auto:true,
-    pause:8000,
-    speed:1500,
-    prevImage:'/files/img/prev.png',
-    nextImage:'/files/img/next.png',
-  });
+    var slider = $('#slider1').bxSlider({
+      controls: true,
+      auto:true,
+      pause:8000,
+      speed:1500,
+      prevImage:'/files/img/prev.png',
+      nextImage:'/files/img/next.png',
+    });
 
-  // para resaltar menu
-  $('#inicio-menu').addClass('active');
+    // para resaltar menu
+    $('#inicio-menu').addClass('active');
 
-  // altura de linea de eventos basado en tamaño de div
-  altura_evento = $(".new-evento-index").height();
-  if (altura_evento < 300) {
-    $(".index-mapa").css("margin-bottom","20px");
-    $(".new-evento-index").height(altura_evento+20);
-  }
-  if (altura_evento < 230) {
-    $(".index-mapa").css("margin-bottom","20px");
-    $(".new-evento-index").height(altura_evento+40);
-  }
-
+    // altura de linea de eventos basado en tamaño de div
+    altura_evento = $(".new-evento-index").height();
+    if (altura_evento < 300) {
+      $(".index-mapa").css("margin-bottom","20px");
+      $(".new-evento-index").height(altura_evento+20);
+    }
+    if (altura_evento < 230) {
+      $(".index-mapa").css("margin-bottom","20px");
+      $(".new-evento-index").height(altura_evento+40);
+    }
+    $('#divRss').FeedEk({
+        FeedUrl: 'http://www2.amarc.org/?q=es/rss.xml',
+        MaxCount: 3,
+        ShowDesc: true,
+        ShowPubDate: true,
+        DescCharacterLimit: 140
+    });
 });
 
 
@@ -67,7 +75,7 @@
       <div class="container">
         <div class="row">
         <div class="span12 encabezado-title">
-          ACTUALIDAD DE CONTRAPARTES
+          ACTUALIDAD
         </div>
       </div>
       </div>
@@ -78,14 +86,22 @@
               <div>
                      {% for nota in notas%}
                         <div class="cuadronota">
-                         {%for thumb in nota.fotos.all|slice:"1"%} 
-                               <img class="imagen-noticia-index" width=245 src="{{thumb.foto.url_220x160}}">
-                         {%endfor%}
+                          {% if nota.fotos.all.count > 0%}
+                             {%for thumb in nota.fotos.all|slice:"1"%}
+                                  <a href="/notas/{{nota.id}}"> 
+                                   <img class="imagen-noticia-index" width=245 src="{{thumb.foto.url_220x160}}">
+                                  </a>
+                             {%endfor%}
+                          {% else %}
+                            <a href="/notas/{{nota.id}}"> 
+                             <img class="imagen-noticia-index" width=245 src="/files/img/nofoto.png">
+                             </a>
+                         {%endif%}
                          <div class="titulo-noticia-index">
                            {{nota.titulo}}
                          </div>
                          <div class="detalle-noticia-index">
-                           {{nota.contenido|safe|truncatewords_html:20}}
+                           {{nota.contenido|safe|truncatewords_html:20|striptags}}
                            <center>
                            <a href="/notas/{{nota.id}}" class="boton-blue">Leer más</a>
                            </center>
@@ -107,6 +123,10 @@
                       {% endfor %}
                         <br>
                   </ol>
+              </div><br>
+              <div class="titlerss">Noticias de AMARC Internacional</div>
+              <div class="rssDiv">
+                <div id="divRss"></div>
               </div>
           </div>
 

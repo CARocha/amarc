@@ -19,6 +19,6 @@ urlpatterns = patterns('contrapartes.views',
     url(r'^videos/$', 'todos_videos', name='todos-videos'),
     url(r'^audios/$', 'todos_audios', name='todos-audios'),
     url(r'^lista/$', 'lista_aliados', name='todos-lista-aliados'),
-    url(r'^detalle/(?P<pk>\d+)/$', 'lista_aliados', name='todos-lista-aliados'),
+    url(r'^detalle/(?P<id>\d+)/$', 'detalle_aliados', name='aliados'),
     
     )

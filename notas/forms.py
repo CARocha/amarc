@@ -31,3 +31,16 @@ class ComentarioForm(forms.ModelForm):
     	model = ComentarioNotas
     	exclude = ('nota', 'fecha', 'user')
 
+class VideoForm(forms.ModelForm):
+    tags_vid = TagField(widget=TagAutocomplete(), required=False)
+
+    class Meta:
+        model = Videos
+        exclude = ('content_type', 'object_id', 'content_object',)
+
+class AudioForm(forms.ModelForm):
+    tags_aud = TagField(widget=TagAutocomplete(), required=False)
+
+    class Meta:
+        model = Audios
+        exclude = ('content_type', 'object_id', 'content_object',)
