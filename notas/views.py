@@ -86,7 +86,7 @@ def index(request):
     notas = Notas.objects.all().order_by('-fecha','-id')[:2]
     evento = Agendas.objects.filter(publico=True).order_by('-inicio')[:3]
     paises = Pais.objects.all()
-    contrapartes = Contraparte.objects.all()
+    contrapartes = Contraparte.objects.filter(tipo=1)
     audio = Audios.objects.all()[:7]
 
     return render_to_response('index.html', locals(),
