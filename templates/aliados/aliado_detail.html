@@ -86,12 +86,12 @@
                 <br>
                  {% if contra.temas %}
                      <div class="destacado-content">Temas</div>
-                     {{contra.temas|striptags}}
+                     {{contra.temas|striptags|safe}}
                  {% endif %}
                  <br>
                  {% if contra.generalidades %}
                      <div class="destacado-content">Generalidades</div>
-                    {{contra.generalidades|striptags}}
+                    {{contra.generalidades|striptags|safe}}
                  {% endif %}
             </div>
             <div class="span5 divisordoble">
