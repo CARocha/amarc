@@ -87,13 +87,13 @@
                  {% if contra.temas %}
                     {% autoescape on %}
                          <div class="destacado-content">Temas</div>
-                         {{contra.temas|safe|striptags}}
+                         {{contra.temas|safe|truncatewords_html:10000|striptags}}
                     {% endautoescape %}
                  {% endif %}
                  <br><br>
                  {% if contra.generalidades %}
                      <div class="destacado-content">Generalidades</div>
-                    {{contra.generalidades|safe|striptags}}
+                    {{contra.generalidades|safe|truncatewords_html:10000|striptags}}
                  {% endif %}
             </div>
             <div class="span5 divisordoble">
