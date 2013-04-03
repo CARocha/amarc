@@ -85,15 +85,13 @@
                 <div class="clean"></div>
                 <br>
                  {% if contra.temas %}
-                    {% autoescape on %}
-                         <div class="destacado-content">Temas</div>
-                         {{contra.temas|safe|truncatewords_html:10000|striptags}}
-                    {% endautoescape %}
+                     <div class="destacado-content">Temas</div>
+                     {{contra.temas|safe|striptags}}
                  {% endif %}
                  <br><br>
                  {% if contra.generalidades %}
                      <div class="destacado-content">Generalidades</div>
-                    {{contra.generalidades|safe|truncatewords_html:10000|striptags}}
+                    {{contra.generalidades|safe|striptags}}
                  {% endif %}
             </div>
             <div class="span5 divisordoble">
