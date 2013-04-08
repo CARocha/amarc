@@ -17,7 +17,6 @@ import operator
 from django.core.mail import send_mail, EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.contrib.sites.models import Site
-from foros.forms import *
 
 # Create your views here.
 
@@ -152,8 +151,9 @@ def editar_nota(request, id):
         form = NotasForms(request.POST, instance=nota)
         form2 = NotaFormSet(data=request.POST, files=request.FILES, instance=nota)
         form3 = Nota2FormSet(data=request.POST, files=request.FILES, instance=nota)
-
-    	if form.is_valid() and form2.is_valid() and form3.is_valid():
+        form4 = NotavideoFormSet(data=request.POST, files=request.FILES, instance=nota)
+        form5 = NotaAudioFormSet(data=request.POST, files=request.FILES, instance=nota)
+    	if form.is_valid() and form2.is_valid() and form3.is_valid() and form4.is_valid() and form5.is_valid():
             nota.titulo = request.POST['titulo']
             nota.contenido = request.POST['contenido']
             nota.fecha = datetime.datetime.now()
@@ -162,11 +162,16 @@ def editar_nota(request, id):
             #salvando inline
             form2.save()
             form3.save()
+            form4.save()
+            form5.save()
             return HttpResponseRedirect('%s?shva=ok' % nota.get_absolute_url())
     else:
         form = NotasForms(instance=nota)
         form2 = NotaFormSet(instance=nota)
         form3 = Nota2FormSet(instance=nota)
+        form4 = NotavideoFormSet(instance=nota)
+        form5 = NotaAudioFormSet(instance=nota)
+
 
     return render_to_response('notas/editar_nota.html', locals(),
     	                         context_instance=RequestContext(request))
