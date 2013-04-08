@@ -86,7 +86,7 @@ def index(request):
     evento = Agendas.objects.filter(publico=True).order_by('-inicio')[:3]
     paises = Pais.objects.all()
     contrapartes = Contraparte.objects.filter(tipo=1)
-    audio = Audios.objects.all()[:7]
+    audio = Audios.objects.all()[:4]
 
     return render_to_response('index.html', locals(),
                               context_instance=RequestContext(request))
@@ -194,7 +194,7 @@ def notify_all_notas(notas):
                                  'url': '%s/notas/%s' % (site, notas.id),
                                  #'url_aporte': '%s/foros/ver/%s/#aporte' % (site, foros.id),
                                  })
-    send_mail('Nueva Nota en CAFOD', contenido, 'cafod@cafodca.org', [user.email for user in users if user.email])
+    send_mail('Nueva Nota en AMARC', contenido, 'amarc@amarcnicaragua.org', [user.email for user in users if user.email])
 
 @login_required
 def comentar_nota(request, id):
