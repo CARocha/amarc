@@ -48,7 +48,27 @@ $(".alert").alert();
 {%endblock%}
 {%block titulo%}Noticias{%endblock%}
 {% block contenido %}
-
+<style type="text/css" media="screen">
+  .redes_sociales{
+    background-color: #ccc;
+    height: 30px;
+  }
+  .amarc_twitter{
+    margin-top: 3px;
+    margin-left: 68px;
+    float: left;
+  }
+  .amarc_gplus {
+    margin-top: 3px;
+    float: left;
+  }
+  .amarc_fb {
+    margin-top: 3px;
+    margin-right: 29px;
+    float: left;
+  }
+  
+</style>
 <div class="row">
     <div class="encabezado">
       <div class="container">
@@ -85,9 +105,17 @@ $(".alert").alert();
         <div class="row ">
             <div class="span7 divisordoble">
                 {{nota.contenido|safe}}
-                <a href="https://twitter.com/share" class="twitter-share-button" data-lang="es">Twittear</a>
-                <div class="fb-like" data-send="true" data-layout="button_count" data-width="250" data-show-faces="false"></div> &nbsp;&nbsp;
-                <g:plusone></g:plusone>
+                <div class="redes_sociales">
+                  <div class="amarc_twitter">
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-lang="es">Twittear</a>
+                  </div>
+                  <div class="amarc_fb">
+                    <div class="fb-like" data-send="true" data-layout="button_count" data-width="250" data-show-faces="false"></div>
+                  </div>
+                  <div class="amarc_gplus">
+                    <div class="g-plusone" data-size="medium"></div>
+                  </div>
+                </div>
             </div>
             <div class="span5 divisordoble">
                 <div id="slider1">
