@@ -16,9 +16,10 @@ urlpatterns = patterns('contrapartes.views',
     url(r'^mensaje/ver/$', 'enviar_mensaje', name="enviar-mensaje"),
     url(r'^estadisticas/ver/$', 'estadisticas', name="estadisticas"),
     url(r'^ver_mapa_completo/$', 'datos_mapa', name="datos-mapa"),
-    url(r'^videos/$', 'todos_videos', name='todos-videos'),
-    url(r'^audios/$', 'todos_audios', name='todos-audios'),
+    url(r'^videos/$', 'todos_videos', name='todos_videos'),
+    url(r'^audios/$', 'todos_audios', name='todos_audios'),
     url(r'^lista/$', 'lista_aliados', name='todos-lista-aliados'),
     url(r'^detalle/(?P<id>\d+)/$', 'detalle_aliados', name='aliados'),
+    url(r'^radio_audio/(?P<id>\d+)/$', 'audios_radios', name='audios_radios'),
     
     )

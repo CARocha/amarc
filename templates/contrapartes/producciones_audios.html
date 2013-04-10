@@ -41,7 +41,7 @@
                     Audios
                 </span>
                 <br><br><br>
-                {% for obj in audio %}
+                {% for obj in audios %}
                     <div class="elemento-audio">
                     <div class="nombre-radio">
                         
@@ -62,13 +62,25 @@
 
                 <div class="pagination">
                   <ul>
-                    <li><a href="#">←</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">→</a></li>
+                    {% if audios.has_previous %}
+                    <li>
+                      <a href="{% url todos_audios %}?page={{ audios.previous_page_number }}">
+                        ← Anterior</a>
+                    </li>
+                    {% endif %}
+
+                    <li class="active">
+                        {% for numero in audios.paginator.page_range%}
+                          <a href="{% url todos_audios %}?page={{numero}}">{{numero}}</a>
+                        {%endfor%}
+                    </li>
+
+                    {% if audios.has_next %}
+                     <li>
+                     <a href="{% url todos_audios %}?page={{ audios.next_page_number }}">
+                            Siguiente →</a>
+                     </li>
+                     {% endif %}
                   </ul>
                 </div>
 
@@ -76,8 +88,8 @@
             <div class='span3 sidebar-radios'>
                 <center>
                 <div class="btn-group">
-                  <a href="/contrapartes/videos" class="btn btn-large active">Audios</a>
-                  <a href="/contrapartes/audios" class="btn btn-large ">Videos</a>
+                  <a href="/contrapartes/audios" class="btn btn-large active">Audios</a>
+                  <a href="/contrapartes/videos" class="btn btn-large ">Videos</a>
                 </div>
                 </center>
                 <br>
@@ -96,32 +108,18 @@
                   </ul>
                   <div class="tab-content">
                     <div class="tab-pane active" id="tab1">
-                      <a href="#">Radio Camoapa</a>
-                      <a href="#">Radio Humedales</a>
-                      <a href="#">Radio Segovia</a>
-                      <a href="#">Radio Juvenil</a>
-                      <a href="#">Radio DKYFM</a>
-                      <a href="#">Radio Universidad</a>
-                      <a href="#">Radio Ecologica</a>
-                      <a href="#">Radio La Nandaimeña</a>
-                      <a href="#">Radio Vos</a>
-                      <a href="#">Radio Zinica</a>
-                      <a href="#">Radio Palabra de mujer</a>
-                      <a href="#">Radio Huracan</a>
+                      {% for obj in asociados %}
+                        <a href="/contrapartes/radio_audio/{{obj.id}}">{{obj.siglas}}</a>
+                      {% empty %}
+                        <p>no hay asociados</p>
+                      {% endfor %}
                     </div>
                     <div class="tab-pane" id="tab2">
-                      <a href="#" class="etiqueta"><i class="icon-tag"></i>Libertad</a>
-                      <a href="#" class="etiqueta"><i class="icon-tag"></i>Mujeres</a>
-                      <a href="#" class="etiqueta"><i class="icon-tag"></i>Ciudadania</a>
-                      <a href="#" class="etiqueta"><i class="icon-tag"></i>Derecho</a>
-                      <a href="#" class="etiqueta"><i class="icon-tag"></i>Local</a>
-                      <a href="#" class="etiqueta"><i class="icon-tag"></i>Naturaleza</a>
-                      <a href="#" class="etiqueta"><i class="icon-tag"></i>Testimonio</a>
-                      <a href="#" class="etiqueta"><i class="icon-tag"></i>Novela</a>
-                      <a href="#" class="etiqueta"><i class="icon-tag"></i>Programa radial</a>
-                      <a href="#" class="etiqueta"><i class="icon-tag"></i>Cuentos</a>
-                      <a href="#" class="etiqueta"><i class="icon-tag"></i>Viñetas</a>
-                      <a href="#" class="etiqueta"><i class="icon-tag"></i>Radio</a>
+                      {% for obj in clave %}
+                        <a href="#" class="etiqueta"><i class="icon-tag"></i>{{obj}}</a>
+                      {% empty %}
+                        <p>No hay etiquetas aun</p>
+                      {% endfor %}
                     </div>
                   </div>
                 </div>

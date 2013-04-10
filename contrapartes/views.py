@@ -153,7 +153,7 @@ def notify_user_mensaje(mensaje):
                                    'mensajes': mensaje,
                                    'url': '%s/contrapartes/mensaje/ver/' % (site,)
                                     })
-    msg = EmailMultiAlternatives('Nuevo mensaje CAFOD', contenido, 'cafod@cafodca.org', [user.email for user in mensaje.user.all() if user.email])
+    msg = EmailMultiAlternatives('Nuevo mensaje AMARC', contenido, 'amarc@amarcnicaragua.org', [user.email for user in mensaje.user.all() if user.email])
     msg.attach_alternative(contenido, "text/html")
     msg.send()
     #send_mail('Nuevo mensaje CAFOD', contenido, 'cafod@cafodca.org', [user.email for user in mensaje.user.all() if user.email])
@@ -238,10 +238,10 @@ def datos_mapa(request):
         serializado = simplejson.dumps(lista)
         return HttpResponse(serializado, mimetype='application/json') 
 
-def todos_videos(request):
+def todos_audios(request):
     audio = Audios.objects.all()
 
-    paginator = Paginator(audio, 5)
+    paginator = Paginator(audio, 4)
 
     page = request.GET.get('page')
     try:
@@ -251,13 +251,16 @@ def todos_videos(request):
     except EmptyPage:
         audios = paginator.page(paginator.num_pages)
 
+    asociados = Contraparte.objects.filter(tipo=1)
+    clave = Tag.objects.all()
+
     return render_to_response('contrapartes/producciones_audios.html', locals(),
                               context_instance=RequestContext(request))
 
-def todos_audios(request):
+def todos_videos(request):
     video = Videos.objects.all()
 
-    paginator = Paginator(video, 5)
+    paginator = Paginator(video, 4)
 
     page = request.GET.get('page')
     try:
@@ -266,6 +269,9 @@ def todos_audios(request):
         videos = paginator.page(1)
     except EmptyPage:
         videos = paginator.page(paginator.num_pages)
+
+    asociados = Contraparte.objects.filter(tipo=1)
+    clave = Tag.objects.all()
 
     return render_to_response('contrapartes/producciones_videos.html', locals(),
                               context_instance = RequestContext(request))
@@ -282,3 +288,22 @@ def detalle_aliados(request,id):
     notas = Notas.objects.filter(user__userprofile__contraparte__id=id).order_by('-fecha')
     return render_to_response('aliados/aliado_detail.html', locals(),
                                  context_instance=RequestContext(request))
+
+def audios_radios(request, id):
+    audio = Audios.objects.filter(object_id=id)
+    print audio
+    paginator = Paginator(audio, 4)
+
+    page = request.GET.get('page')
+    try:
+        audios = paginator.page(page)
+    except PageNotAnInteger:
+        audios = paginator.page(1)
+    except EmptyPage:
+        audios = paginator.page(paginator.num_pages)
+
+    asociados = Contraparte.objects.filter(tipo=1)
+    clave = Tag.objects.all()
+
+    return render_to_response('contrapartes/producciones_audios.html', locals(),
+                              context_instance=RequestContext(request))
