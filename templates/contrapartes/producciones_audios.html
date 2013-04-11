@@ -41,7 +41,8 @@
                     Audios
                 </span>
                 <br><br><br>
-                {% for obj in audios %}
+                {% if flags == 0 %}
+                  {% for obj in audios %}
                     <div class="elemento-audio">
                     <div class="nombre-radio">
                         
@@ -59,6 +60,27 @@
                 {% empty %}
                     <p>No hay audios</p>
                 {% endfor %}
+                {%else%}
+                  {% for obj in lista_audio %} 
+                    <div class="elemento-audio">
+                    <div class="nombre-radio">
+                        {{nombre}} puta
+                    </div>
+                    <div class="player-right">
+                        <div class="player">
+                            <audio src="/uploads/{{obj.1}}" preload="auto" />
+                        </div>
+                        <br>
+                        {{obj.0}}
+                        <a href="/uploads/{{obj.audio}}" class="boton-blue-leer ">Descargar</a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                {% empty %}
+                    <p>No hay audios</p>
+                {% endfor %}
+                {% endif %}
+                
 
                 <div class="pagination">
                   <ul>

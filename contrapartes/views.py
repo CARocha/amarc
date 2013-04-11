@@ -239,6 +239,7 @@ def datos_mapa(request):
         return HttpResponse(serializado, mimetype='application/json') 
 
 def todos_audios(request):
+    flags = 0
     audio = Audios.objects.all()
 
     paginator = Paginator(audio, 4)
@@ -290,8 +291,17 @@ def detalle_aliados(request,id):
                                  context_instance=RequestContext(request))
 
 def audios_radios(request, id):
-    audio = Audios.objects.filter(object_id=id)
-    print audio
+    flags = 1
+    audio = Notas.objects.filter(user__userprofile__contraparte__id=id)
+    for algo in audio:
+        nombre = algo.user.userprofile.contraparte
+
+
+    lista_audio = []
+    for obj1 in audio:
+        for obj2 in obj1.audio.all():
+            lista_audio.append([obj2.nombre_audio,obj2.audio])
+
     paginator = Paginator(audio, 4)
 
     page = request.GET.get('page')
