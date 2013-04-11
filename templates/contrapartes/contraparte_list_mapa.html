@@ -25,7 +25,7 @@
   map.mapTypes.set('map_style', styledMap);
   map.setMapTypeId('map_style');
 
-   $.post('/contrapartes/ver_mapa_completo/', function(data){
+   $.getJSON('/contrapartes/ver_mapa_completo/', function(data){
           $.each(data, function(i, elemento){
               var latlng = new google.maps.LatLng(elemento.lat, elemento.lon);
               var marker = new google.maps.Marker({
