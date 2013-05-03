@@ -66,7 +66,7 @@ class Contraparte(models.Model):
     class Meta:
         verbose_name_plural = "Asociados"
         unique_together = ("font_color", "nombre")
-        ordering = ['frecuecia',]
+        ordering = ['-frecuecia',]
 
     def __unicode__(self):
         return self.nombre
