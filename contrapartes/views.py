@@ -32,7 +32,7 @@ def lista_contrapartes_mapa(request):
                                  context_instance=RequestContext(request))
 
 def lista_contrapartes(request):
-    object_list = Contraparte.objects.filter(tipo=1)
+    object_list = Contraparte.objects.filter(tipo=1).order_by('frecuecia')
     return render_to_response('contrapartes/contraparte_list.html', locals(),
                                  context_instance=RequestContext(request))
 
