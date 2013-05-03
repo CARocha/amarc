@@ -32,7 +32,7 @@
             <div class="span9">
             {% for contraparte in object_list %}
                     <div class='asociado-link'>
-                        <span class="frecuencia" style="right:0;position: relative;">105.5 fm</span>
+                        <span class="frecuencia" style="right:0;position: relative;">{{contraparte.frecuecia}}</span>
                         <center><a href="{{contraparte.get_absolute_url}}" >
                             {% if contraparte.logo %}
                             <img src="{{contraparte.logo.url_180x160}}" ></a>
