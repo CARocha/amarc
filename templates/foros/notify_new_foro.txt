@@ -10,5 +10,5 @@ http://{{url}}
 Para hacer un aporte a este Foro
 http://{{url_aporte}}
 
-CAFOD
-is the official Catholic aid agency for England and Wales. 
+AMARC -  Nicaragua
+Asociación Mundial de Radios Comunitarias
