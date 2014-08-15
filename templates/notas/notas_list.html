@@ -10,6 +10,9 @@
 {%block titulo%}Noticias{%endblock%}
 {%block descriptitulo%}Últimas noticias destacadas de las asociadas y organizaciones aliadas de AMARC-Nicaragua{%endblock%}
 {% block contenido %}
+<style type="text/css">
+	.wraap{margin:0 auto 0 auto; width:390px;}
+</style>
 <div class="row">
 	<div class="encabezado">
 	  <div class="container">
@@ -51,26 +54,22 @@
 			</div>
 			<hr>
 		{% endfor %}
-	    <div class="pagination">
+	    <div class="pagination wraap">
 	    	<ul>
 	        {% if notas.has_previous %}
 	        <li>
 	          <a href="{% url notas_list %}?page={{ notas.previous_page_number }}">
 	            ← Anterior</a>
-	        </li>
+	        
 	        {% endif %}
 
-	        <li class="active">
-	            {% for numero in notas.paginator.page_range%}
-	            	<a href="{% url notas_list %}?page={{numero}}">{{numero}}</a>
-	            {%endfor%}
-	        </li>
+	        	<span class="active">
+            		Pagina {{ notas.number }} de {{ notas.paginator.num_pages }}.
+        		</span>
 
 	        {% if notas.has_next %}
-	         <li>
 	         <a href="{% url notas_list %}?page={{ notas.next_page_number }}">
-	                Siguiente →</a>
-	         </li>
+	         Siguiente →</a> </li>
 	         {% endif %}
 	    	</ul>
 	    </div>
