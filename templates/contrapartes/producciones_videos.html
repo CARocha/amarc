@@ -17,6 +17,9 @@
 {%block titulo%}Producciones{%endblock%}
 {%block descriptitulo%}Aquí podrá encontrar las producciones radiofónicas elaboradas por las asociadas y aliados  a fin de favorecer el ejercicio del derecho a la información y a la libertad de expresión de la ciudadanía.{%endblock%}
 {% block contenido %}
+<style type="text/css">
+  .wraap{margin:0 auto 0 auto; width:390px;}
+</style>
 <div class="row">
     <div class="encabezado">
       <div class="container">
@@ -60,17 +63,15 @@
                     <li>
                       <a href="{% url todos_videos %}?page={{ videos.previous_page_number }}">
                         ← Anterior</a>
-                    </li>
+                  
                     {% endif %}
 
-                    <li class="active">
-                        {% for numero in videos.paginator.page_range%}
-                          <a href="{% url todos_videos %}?page={{numero}}">{{numero}}</a>
-                        {%endfor%}
-                    </li>
+                    <span class="active">
+                        Pagina {{ videos.number }} de {{ videos.paginator.num_pages }}.
+                    </span>
 
                     {% if videos.has_next %}
-                     <li>
+                 
                      <a href="{% url todos_videos %}?page={{ videos.next_page_number }}">
                             Siguiente →</a>
                      </li>
